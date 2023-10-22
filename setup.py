@@ -12,7 +12,6 @@ setup(
    packages=find_packages(),
    install_requires=['requests>=2.31.0', 'pydantic>=2.4.0'],
    classifiers=[
-      # Классификаторы для PyPI
       'Programming Language :: Python :: 3',
       'License :: OSI Approved :: MIT License',
       'Operating System :: OS Independent',
