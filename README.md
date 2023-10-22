@@ -3,7 +3,7 @@ Small wrapper for [HexWay Hive](https://hexway.io/hive/) Rest API.
 
 ## Installation
 ```bash
-pip install .
+pip install hw-hivepy
 ```
 
 ## Dependencies
