@@ -1,8 +1,8 @@
 from enum import StrEnum, auto
 from typing import Type, Dict, Optional, Self
 
-from hive.lib.http_client.http_client import HTTPClient
-from hive.lib.rest.exceptions import RestConnectionError
+from hivepy.lib.http_client.http_client import HTTPClient
+from hivepy.lib.rest.exceptions import RestConnectionError
 
 
 class State(StrEnum):
