@@ -61,7 +61,7 @@ class Issue(pydantic.BaseModel):
             raise ValueError('Invalid vulnerability id.')
         return value
 
-    @pydantic.model_serializer
+    @pydantic.model_serializer(when_used='json')
     def serialize(self) -> Dict:
         """Serialize object to dict."""
         additional_fields = (dump := self.model_dump()).pop('additional_fields') or {}
