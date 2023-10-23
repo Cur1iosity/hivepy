@@ -1,8 +1,8 @@
 from typing import TypeVar
 
-from Hive.enums import ObjectType
-from Hive.meta import wrap
-from Hive.rest.base_client import BaseHiveClient
+from hive.lib.enums import ObjectType
+from hive.lib.meta import wrap
+from hive.lib.rest.base_client import BaseHiveClient
 
 T = TypeVar('T', bound='HiveObject')
 

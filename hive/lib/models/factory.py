@@ -1,6 +1,5 @@
-from PyCMDB.models.CIS import *
 from typing import Type, Any, List
-from Hive import models
+from hive.lib import models
 
 objects = [obj for name, obj in vars(models).items() if isinstance(obj, type)]
 object_mapper = {x.__name__: x for x in objects}
