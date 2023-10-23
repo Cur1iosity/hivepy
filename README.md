@@ -14,7 +14,7 @@ pip install hw-hivepy
 ## Usage
 
 ```python
-from hive import Hive
+from hivepy import Hive
 
 
 def main() -> None:
