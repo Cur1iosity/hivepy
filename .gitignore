@@ -154,4 +154,4 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-/Hive/hive_client_test.py
+/hive/hive_client_test.py

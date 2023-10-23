@@ -1,4 +1,4 @@
-from Hive import Hive
+from hive import Hive
 
 
 def main() -> None:
