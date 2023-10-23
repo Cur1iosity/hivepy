@@ -2,7 +2,7 @@ from enum import StrEnum, auto
 from typing import Dict, Self, Union
 
 import requests.utils
-from hive.lib.http_client.exceptions import *
+from hivepy.lib.http_client.exceptions import *
 from requests import Session, Response
 
 
