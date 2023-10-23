@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
    name='hw-hivepy',
-   version='0.1.5',
+   version='0.1.6',
    description='Small wrapper for HexWay Hive API',
    long_description=open('README.md').read(),
    long_description_content_type='text/markdown',
