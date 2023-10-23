@@ -1,6 +1,6 @@
 from typing import List, Union, Callable
-from hive.lib.enums import ObjectType
-from hive.lib.models.factory import Factory
+from hivepy.lib.enums import ObjectType
+from hivepy.lib.models.factory import Factory
 import functools
 
 factory = Factory()
