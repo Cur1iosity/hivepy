@@ -43,12 +43,6 @@ class Issue(pydantic.BaseModel):
     creator_uuid: str = pydantic.Field(alias='creatorUuid')
     connection: Optional[Any] = pydantic.Field(default=None, alias='hive', repr=False, exclude=True)
 
-    @pydantic.field_validator('name', mode='before')
-    def validate_text_field(cls, value: str) -> str:
-        """Validate text field."""
-        value = value.strip('\n')
-        return value if value.endswith('__') else value.strip('__')
-
     @pydantic.field_validator('post_time', mode='before')
     def validate_datetime(cls, value: str) -> str:
         """Validate datetime field."""

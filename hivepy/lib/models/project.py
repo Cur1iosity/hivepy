@@ -44,12 +44,6 @@ class Project(pydantic.BaseModel):
             raise ValueError('Invalid project id.')
         return value
 
-    @pydantic.field_validator('name', 'description', mode='before')
-    def validate_text_field(cls, value: str) -> str:
-        """Validate text field."""
-        value = value.strip('\n')
-        return value if value.endswith('__') else value.strip('__')
-
     @pydantic.field_validator('create_date', 'update_date', 'start_date', 'end_date', mode='before')
     def validate_datetime(cls, value: str) -> str:
         """Validate datetime field."""
@@ -59,7 +53,7 @@ class Project(pydantic.BaseModel):
             raise ValueError('Invalid datetime.')
         return datetime.strftime(dt, '%d-%m-%Y %H:%M:%S')
 
-    @pydantic.model_serializer
+    @pydantic.model_serializer(when_used='json')
     def serialize(self) -> Dict:
         """Serialize object to dict."""
         additional_fields = (dump := self.model_dump()).pop('additional_fields') or {}
