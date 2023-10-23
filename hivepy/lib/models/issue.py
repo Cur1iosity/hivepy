@@ -61,6 +61,14 @@ class Issue(pydantic.BaseModel):
             raise ValueError('Invalid vulnerability id.')
         return value
 
+    @pydantic.field_validator('additional_fields', mode='before')
+    def validate_additional_fields(cls, value: Optional[Dict]) -> Optional[Dict]:
+        """Validate additional fields."""
+        if not value:
+            return value
+        value = {to_snake_case(key): value for key, value in value.items()}
+        return value
+
     @pydantic.model_serializer(when_used='json')
     def serialize(self) -> Dict:
         """Serialize object to dict."""
@@ -74,3 +82,8 @@ class Issue(pydantic.BaseModel):
     def __str__(self) -> str:
         """Return string representation of object."""
         return f'{self.__class__.__name__}({"".join(f"{key}={value}, " for key, value in self.model_dump().items())})'
+
+
+def to_snake_case(name: str) -> str:
+    """Convert camel case to snake case."""
+    return ''.join(['_' + i.lower() if i.isupper() else i for i in name]).lstrip('_')
