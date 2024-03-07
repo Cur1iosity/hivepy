@@ -1,8 +1,9 @@
 from enum import StrEnum, auto
-from typing import Type, Dict, Optional, Self
+from typing import Dict, Optional, Self
 
 from hivepy.lib.http_client.http_client import HTTPClient
-from hivepy.lib.rest.exceptions import RestConnectionError
+from .exceptions import RestConnectionError
+from .router import Router
 
 
 class State(StrEnum):
@@ -12,28 +13,14 @@ class State(StrEnum):
     DISCONNECTED = auto()
 
 
-Route = StrEnum('Route', {
-    'SESSION': 'session',
-    'AUTH': 'session',
-    'PROJECT': 'project',
-    'FILES': 'files',
-
-})
-
-
 class BaseHiveClient:
     base_url: str = None
-    route: Type[Route] = None
+    router: Router = None
 
     def __init__(self):
         """Initialize RestHive."""
         self.state: State = State.NOT_CONNECTED
         self.http_client: HTTPClient = HTTPClient()
-
-    @staticmethod
-    def _get_routes() -> Type[Route]:
-        """Get routes from routes.py."""
-        return Route
 
     def _update_base_url(self, server: str, port: int, verify: bool) -> True:
         """Prepare base url."""
@@ -54,19 +41,18 @@ class BaseHiveClient:
         self.http_client.add_headers({'Content-Type': 'application/json'})
         return True
 
-    def _update_routes(self, server: str, port: int, verify: bool) -> True:
+    def _build_router(self, server: str, port: int, verify: bool) -> True:
         """Prepare urls."""
         self._update_base_url(server, port, verify)
-        self.route = StrEnum('Url', {key: f'{self.base_url}/{value.strip("/")}'
-                                     for key, value in Route.__members__.items()})
+        self.router = Router(self.base_url)
         return True
 
-    def _preconnect_update(self, **kwargs) -> True:
+    def _preauth_update(self, **kwargs) -> True:
         """Update settings before connecting."""
-        self._update_routes(**{'server': kwargs['server'],
-                               'port': kwargs['port'],
-                               'verify': kwargs['verify'],
-                               })
+        self._build_router(**{'server': kwargs['server'],
+                              'port': kwargs['port'],
+                              'verify': kwargs['verify'],
+                              })
 
         self._update_http_client(**{'verify': (kwargs['verify']),
                                     'proxies': kwargs.get('proxies'),
@@ -77,7 +63,7 @@ class BaseHiveClient:
 
     def _authenticate(self, username: str, password: str) -> None:
         """Authenticate in Hive."""
-        response = self.http_client.session.post(self.route.AUTH, json={
+        response = self.http_client.session.post(self.router.AUTH, json={
             'userLogin': username,
             'userPassword': password,
         })
@@ -100,6 +86,6 @@ class BaseHiveClient:
                 proxy: Optional[str] = None,
                 ) -> Self:
         """Method connects to Hive instance."""
-        self._preconnect_update(server=server, port=port, verify=verify, proxies=proxies, proxy=proxy)
+        self._preauth_update(server=server, port=port, verify=verify, proxies=proxies, proxy=proxy)
         self._authenticate(username, password)
         return self

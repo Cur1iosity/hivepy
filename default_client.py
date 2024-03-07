@@ -13,7 +13,7 @@ def main() -> None:
 
     # Getting projects and its issues
     hive.get_projects()
-    hive.get_projects(project_id='some-project-id')
+    hive.get_project(project_id='some-project-id')
     hive.get_issues(project_id='some-project-id')
 
     # Updating issue fields
