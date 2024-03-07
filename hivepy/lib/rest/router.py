@@ -6,12 +6,18 @@ class Router:
     SESSION = 'session'
     AUTH = 'session'
 
-    PROJECT = 'project'
-    PROJECTS = 'project/editable/'
-    PROJECT_TEMPLATE = 'project/templates/'
-
     GROUP = 'groups'
     GROUPS = 'groups/'
+
+    PROJECT_TEMPLATES = 'project/templates/'
+    PROJECTS = 'project/editable/'
+
+    PROJECT_TEMPLATE = 'project/templates'
+    PROJECT = 'project'
+
+    ISSUE_SCHEMES = 'customization/issues/'
+    ISSUE_SCHEME = 'customization/issues'
+
     FILES = 'files'
 
     def __init__(self, base_url: str) -> None:

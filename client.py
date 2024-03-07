@@ -13,9 +13,12 @@ def main() -> None:
     }
 
     hive: Hive = Hive().connect(**auth)
-    print(hive.get_groups())
-    print(hive.get_group('cb60ba78-bd28-4c7c-8a46-dbb840127986'))
-    print(hive.get_project_templates())
+    # print(hive.get_groups())
+    # print(hive.get_group('cb60ba78-bd28-4c7c-8a46-dbb840127986'))
+    # print(hive.get_project_templates())
+    # print(hive.get_project_template('cee3cff0-99be-483d-9bba-f576027027bf'))
+    print(hive.get_issue_schemes())
+    print(hive.get_issue_scheme('9e940a29-50e7-4ef2-82b8-eceb48a3020d'))
 
 
 if __name__ == "__main__":

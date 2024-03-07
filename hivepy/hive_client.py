@@ -21,11 +21,27 @@ class Hive(BaseHiveClient):
 
     def get_project_templates(self) -> T:
         """Get project templates."""
-        return self.http_client.get(self.router.PROJECT_TEMPLATE)
+        return self.http_client.get(self.router.PROJECT_TEMPLATES)
+
+    def get_project_template(self, template_id: str) -> T:
+        """Get project template."""
+        return self.http_client.get(f'{self.router.PROJECT_TEMPLATE}/{template_id}/')
 
     def get_projects(self) -> T:
         """Get group projects."""
-        return self.http_client.get(f'{self.router.PROJECTS}')
+        return self.http_client.get(self.router.PROJECTS)
+
+    def get_project(self, project_id: str) -> T:
+        """Get project."""
+        return self.http_client.get(f'{self.router.PROJECT}/{project_id}')
+
+    def get_issue_schemes(self) -> T:
+        """Get issue scheme."""
+        return self.http_client.get(self.router.ISSUE_SCHEMES)
+
+    def get_issue_scheme(self, scheme_id: str) -> T:
+        """Get issue scheme."""
+        return self.http_client.get(f'{self.router.ISSUE_SCHEME}/{scheme_id}/')
 
     # @wrap(ObjectType.PROJECT_TEMPLATE, many=True)
     # def get_project_templates(self) -> T:
