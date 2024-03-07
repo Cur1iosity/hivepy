@@ -5,9 +5,13 @@ class Router:
     """Enumeration of routes."""
     SESSION = 'session'
     AUTH = 'session'
+
     PROJECT = 'project'
-    PROJECT_GROUP = 'groups'
+    PROJECTS = 'project/editable/'
     PROJECT_TEMPLATE = 'project/templates'
+
+    GROUP = 'groups'
+    GROUPS = 'groups/'
     FILES = 'files'
 
     def __init__(self, base_url: str) -> None:
@@ -21,6 +25,5 @@ class Router:
     def _update_routes(self, base_url: str) -> None:
         """Update routes."""
         routes: Dict = self._get_routes()
-        [setattr(self, attr, f"{base_url}/{routes[attr]}/") for attr in routes]
-        setattr(self, 'AUTH', self.AUTH.rstrip('/'))  # Strange hive behavior with auth url
+        [setattr(self, attr, f"{base_url}/{routes[attr]}") for attr in routes]
         return None

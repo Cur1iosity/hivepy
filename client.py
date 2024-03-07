@@ -13,8 +13,9 @@ def main() -> None:
     }
 
     hive: Hive = Hive().connect(**auth)
-    result: Dict = hive.get_project_groups()
-    print(result)
+    print(hive.get_groups())
+    print(hive.get_group('cb60ba78-bd28-4c7c-8a46-dbb840127986'))
+    print(hive.get_editable_projects_meta())
 
 
 if __name__ == "__main__":

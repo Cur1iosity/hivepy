@@ -1,7 +1,7 @@
-from typing import TypeVar
+from typing import TypeVar, List
 
-from hivepy.lib.enums import ObjectType
-from hivepy.lib.meta import wrap
+# from hivepy.lib.enums import ObjectType
+# from hivepy.lib.meta import wrap
 from hivepy.lib.rest.base_client import BaseHiveClient
 
 T = TypeVar('T', bound='HiveObject')
@@ -10,10 +10,22 @@ T = TypeVar('T', bound='HiveObject')
 class Hive(BaseHiveClient):
     """Hive client."""
 
-    # @wrap(ObjectType.PROJECT_GROUP, many=True)
-    def get_project_groups(self) -> T:
+    # @wrap(ObjectType.GROUP, many=True)
+    def get_groups(self) -> T:
         """Get project groups."""
-        return self.http_client.get(self.router.PROJECT_GROUP)
+        return self.http_client.get(self.router.GROUPS)
+
+    def get_group(self, project_group_id: str) -> T:
+        """Get project group."""
+        return self.http_client.get(f'{self.router.GROUP}/{project_group_id}')
+
+    def get_project_templates(self) -> T:
+        """Get project templates."""
+        return self.http_client.get(self.router.PROJECT_TEMPLATE)
+
+    def get_projects(self) -> T:
+        """Get group projects."""
+        return self.http_client.get(f'{self.router.PROJECTS}')
 
     # @wrap(ObjectType.PROJECT_TEMPLATE, many=True)
     # def get_project_templates(self) -> T:
