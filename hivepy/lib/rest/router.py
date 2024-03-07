@@ -8,7 +8,7 @@ class Router:
 
     PROJECT = 'project'
     PROJECTS = 'project/editable/'
-    PROJECT_TEMPLATE = 'project/templates'
+    PROJECT_TEMPLATE = 'project/templates/'
 
     GROUP = 'groups'
     GROUPS = 'groups/'
