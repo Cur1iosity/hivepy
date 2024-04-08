@@ -6,7 +6,7 @@ from hivepy.rest.state import State
 from hivepy.utils import HTTPClient
 
 
-class Hive:
+class BaseHive:
     def __init__(self):
         """Initialize RestHive."""
         self.base_url: Optional[str] = None
