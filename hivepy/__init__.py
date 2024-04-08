@@ -4,12 +4,9 @@ __email__ = "Cur1iosity@protonmail.com"
 __licence__ = "MIT"
 __version__ = "0.1.0"
 
-from hivepy.hive_client import Hive
-from hivepy.lib.models.project import Project
-from hivepy.lib.models.issue import Issue
+
+from hivepy.rest.hive import Hive
 
 __all__ = [
-        'Hive',
-        'Project',
-        'Issue'
+    'Hive',
 ]

@@ -4,7 +4,7 @@ from hivepy import Hive
 def main() -> None:
     """Main function."""
     auth = {
-        'server': 'http://127.0.0.1',
+        'url': 'http://127.0.0.1',
         'username': 'user',
         'password': 'password',
     }

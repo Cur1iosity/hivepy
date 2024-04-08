@@ -6,3 +6,8 @@ class HiveRestError(Exception):
 class RestConnectionError(HiveRestError):
     """Exception for connection errors."""
     pass
+
+
+class ServerUrlNotDefinedError(HiveRestError):
+    """Exception for server URL not defined."""
+    pass

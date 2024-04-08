@@ -1,9 +1,10 @@
 from enum import StrEnum, auto
-from typing import Dict, Self, Union
+from typing import Dict, Self, Union, List
 
 import requests.utils
-from hivepy.lib.http_client.exceptions import *
 from requests import Session, Response
+
+from hivepy.utils.http_client.exceptions import *
 
 
 class HTTPMethod(StrEnum):
@@ -44,7 +45,7 @@ class HTTPClient:
          if value is not None and hasattr(self.session, key)]
         return self
 
-    def get(self, *args, **kwargs) -> Union[Dict, bytes]:
+    def get(self, *args, **kwargs) -> Union[Dict, List, bytes]:
         """Send GET request."""
         return self._send(HTTPMethod.GET, *args, **kwargs)
 
