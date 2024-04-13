@@ -5,8 +5,8 @@ __licence__ = "MIT"
 __version__ = "0.1.0"
 
 
-from hivepy.rest.base_hive import BaseHive
+from hivepy.rest.hive_api import HiveApi
 
 __all__ = [
-    'BaseHive',
+    'HiveApi',
 ]
