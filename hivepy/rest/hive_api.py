@@ -41,10 +41,10 @@ class HiveApi:
             port = int(str_port[0])
             url = f'{proto}://{hostname}'
 
-        if url.startswith('http') and not port:
-            port = 80
-        elif url.startswith('https') and not port:
+        if url.startswith('https') and not port:
             port = 443
+        elif url.startswith('http') and not port:
+            port = 80
 
         return f'{url.strip("/")}:{port}/api'
 
