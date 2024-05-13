@@ -61,9 +61,9 @@ class HiveApi:
         self.base_url = self.create_base_url(url, port)
 
         if proxies:
-            self.http_client.proxies = proxies
+            self.http_client.session.proxies = proxies
         if proxy:
-            self.http_client.proxies = {'http': proxy, 'https': proxy}
+            self.http_client.session.proxies = {'http': proxy, 'https': proxy}
         if not verify:
             self.http_client.verify = False
         self.authenticate(username, password)
