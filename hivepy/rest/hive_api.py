@@ -4,6 +4,7 @@ from typing import Dict, Optional, Self, List, Union
 from hivepy.rest import exceptions
 from hivepy.rest.state import State
 from hivepy.utils import HTTPClient
+from hivepy.models import Project
 
 
 class HiveApi:
@@ -89,15 +90,15 @@ class HiveApi:
         response = self.http_client.get(f'{self.base_url}/groups')
         return response
 
-    def get_projects(self, **params) -> Dict:
+    def get_projects(self, **params) -> List:
         """Get all projects."""
         response = self.http_client.post(f'{self.base_url}/project/filter', params=params)
-        return response
+        return [Project(**x) for x in response.get('items', [])]
 
-    def get_project(self, project_id: Union[str, uuid.UUID]) -> Dict:
+    def get_project(self, project_id: Union[str, uuid.UUID]) -> Project:
         """Get project by ID."""
         response = self.http_client.get(f'{self.base_url}/project/{project_id}')
-        return response
+        return Project(**response)
 
     def get_project_templates(self, **params) -> Dict:
         """Get all project templates."""
