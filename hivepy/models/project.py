@@ -1,6 +1,5 @@
 from datetime import datetime
 from typing import Dict, Optional, Any
-from uuid import UUID
 
 import pydantic
 
@@ -12,8 +11,6 @@ class Project(pydantic.BaseModel):
     additional_fields: Optional[Dict] = pydantic.Field(default=None, alias='data')
 
     slug: Optional[str] = pydantic.Field(default=None, alias='projectSlug')
-
-    group_id: str = pydantic.Field(alias='projectGroupId')
     full_slug: str = pydantic.Field(default=None, alias='projectFullSlug')
 
     report_template: Optional[str] = pydantic.Field(default=None, alias='defaultReportTemplateName')
@@ -34,15 +31,6 @@ class Project(pydantic.BaseModel):
     last_incoming_pong: Optional[str] = pydantic.Field(default=None, alias='lastIncomingPong', repr=False)
     last_outgoing_ping: Optional[str] = pydantic.Field(default=None, alias='lastOutgoingPing', repr=False)
     connection: Optional[Any] = pydantic.Field(default=None, alias='hive', repr=False, exclude=True)
-
-    @pydantic.field_validator('id', 'group_id', mode='before')
-    def validate_id(cls, value: str) -> str:
-        """Validate hive id-type field."""
-        try:
-            UUID(value)
-        except ValueError:
-            raise ValueError('Invalid project id.')
-        return value
 
     @pydantic.field_validator('create_date', 'update_date', 'start_date', 'end_date', mode='before')
     def validate_datetime(cls, value: str) -> str:

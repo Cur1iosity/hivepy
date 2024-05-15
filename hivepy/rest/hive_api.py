@@ -4,6 +4,7 @@ from typing import Dict, Optional, Self, List, Union
 from hivepy.rest import exceptions
 from hivepy.rest.state import State
 from hivepy.utils import HTTPClient
+from hivepy.models import Project, Issue
 
 
 class HiveApi:
@@ -89,15 +90,15 @@ class HiveApi:
         response = self.http_client.get(f'{self.base_url}/groups')
         return response
 
-    def get_projects(self, **params) -> Dict:
+    def get_projects(self, **params) -> List:
         """Get all projects."""
         response = self.http_client.post(f'{self.base_url}/project/filter', params=params)
-        return response
+        return [Project(**x) for x in response.get('items', [])]
 
-    def get_project(self, project_id: Union[str, uuid.UUID]) -> Dict:
+    def get_project(self, project_id: Union[str, uuid.UUID]) -> Project:
         """Get project by ID."""
         response = self.http_client.get(f'{self.base_url}/project/{project_id}')
-        return response
+        return Project(**response)
 
     def get_project_templates(self, **params) -> Dict:
         """Get all project templates."""
@@ -108,6 +109,15 @@ class HiveApi:
         """Get all project custom fields."""
         response = self.http_client.get(f'{self.base_url}/project/schema/accessible/fields')
         return response
+
+    def get_issues(self, project_id: str, offset: int = 0, limit: int = 100) -> List[Issue]:
+        response = self.http_client.post(
+            url=f'{self.base_url}/project/{project_id}/graph/issue_list?offset={offset}&limit={limit}',
+            json={})
+        return [Issue(**x) for x in response.get('items', [])]
+
+    def get_file(self, project_id: str, file_id: str) -> bytes:
+        return self.http_client.get(f'{self.base_url}/project/{project_id}/graph/file/{file_id}')
 
     def get_issues_schemes(self) -> List[Dict]:
         """Get all issues schemes."""
