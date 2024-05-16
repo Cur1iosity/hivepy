@@ -2,23 +2,24 @@ import datetime
 import uuid
 from typing import Dict, Optional, List
 
-from hivepy.models.base_model import BaseModel
 import pydantic
 
+from hivepy.models.field import Field
+from hivepy.models.unknown_hive_object import UnknownHiveObject
 
-class ProjectSchema(BaseModel):
+
+class ProjectSchema(UnknownHiveObject):
     """Project schema model."""
-    _raw: Dict = pydantic.PrivateAttr()
     id: uuid.UUID
-    version: int
-    updated: Optional[datetime.datetime]
     predefined_fields_settings: List = pydantic.Field(default_factory=list, alias='predefinedFieldsSettings')
-    additional_fields_settings: List = pydantic.Field(default_factory=list, alias='additionalFieldsSettings')
+    additional_fields_settings: List[Field] = pydantic.Field(default_factory=list, alias='additionalFieldsSettings')
     fields_order: List = pydantic.Field(alias='fieldsOrder')
-    created: datetime.datetime
 
-    @pydantic.model_validator(mode='before')
-    def set_raw_data(cls, values: Dict) -> Dict:
-        """Set raw data."""
-        cls._raw = values
-        return values
+    created: datetime.datetime
+    updated: Optional[datetime.datetime]
+    version: int
+
+    @pydantic.field_validator('additional_fields_settings', mode='before')
+    def validate_additional_fields_settings(cls, v: List[Dict]) -> List[Field]:
+        """Validate additional fields settings."""
+        return [Field(**field) for field in v]

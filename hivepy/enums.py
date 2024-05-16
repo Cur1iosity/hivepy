@@ -14,17 +14,14 @@ class ObjectType(StrEnum):
 
 class FieldType(StrEnum):
     """Enumeration of field types."""
-    STRING = auto()
-    INTEGER = auto()
-    FLOAT = auto()
-    MARKDOWN = auto()
-    CHECKBOX = auto()
-    CHECKBOXES = auto()
-    SELECT = auto()
-    RADIO_BUTTONS = auto()
-    DATE = auto()
-    DATETIME = auto()
-    FILE = auto()
-    IMAGE = auto()
-    LINK = auto()
-
+    TEXT = "TEXT"
+    TEXT_SUGGESTED = "TEXT_SUGGESTED"
+    TEXT_MD = "TEXT_MD"
+    INTEGER = "INTEGER"
+    BOOLEAN = "BOOLEAN"
+    FLOAT = "FLOAT"
+    FILE = "FILE"
+    DATE = "DATE"
+    DATETIME = "DATETIME"
+    IMAGE = "IMAGE"
+    LINK = "LINK"

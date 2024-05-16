@@ -1,5 +1,5 @@
 from typing import List, Union, Callable
-from hivepy.lib.enums import ObjectType
+from hivepy.enums import ObjectType
 from hivepy.models import Factory
 import functools
 

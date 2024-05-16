@@ -95,10 +95,10 @@ class HiveApi:
         response = self.http_client.post(f'{self.base_url}/project/filter', params=params)
         return [Project(**x) for x in response.get('items', [])]
 
-    def get_project(self, project_id: Union[str, uuid.UUID]) -> Project:
+    def get_project(self, project_id: Union[str, uuid.UUID]) -> Dict:
         """Get project by ID."""
         response = self.http_client.get(f'{self.base_url}/project/{project_id}')
-        return Project(**response)
+        return response
 
     def get_project_templates(self, **params) -> Dict:
         """Get all project templates."""
