@@ -1,15 +1,16 @@
 from datetime import datetime
 from typing import Dict, Optional, Any
 
-
 import pydantic
 
+from hivepy.models.group import Group
+from hivepy.models.unknown_hive_object import UnknownHiveObject
 
-class Project(pydantic.BaseModel):
+
+class BaseProject(UnknownHiveObject):
     id: str = pydantic.Field(alias='projectId')
     name: str = pydantic.Field(alias='projectName')
     description: Optional[str] = pydantic.Field(default=None, alias='projectDescription')
-    additional_fields: Optional[Dict] = pydantic.Field(default=None, alias='data')
 
     slug: Optional[str] = pydantic.Field(default=None, alias='projectSlug')
     full_slug: str = pydantic.Field(default=None, alias='projectFullSlug')
@@ -17,7 +18,9 @@ class Project(pydantic.BaseModel):
     report_template: Optional[str] = pydantic.Field(default=None, alias='defaultReportTemplateName')
     scope: Optional[str] = pydantic.Field(default=None, alias='projectScope')
     permissions: Optional[Dict] = pydantic.Field(default=None, alias='projectPermissions')
+    group: Optional[Group] = pydantic.Field(default=None, alias='group')
 
+    issue_settings: Optional[Dict] = pydantic.Field(default=None, alias='issueSettings')
     is_archived: bool = pydantic.Field(default=None, alias='projectIsArchived')
     archive_date: Optional[str] = pydantic.Field(default=None, alias='projectArchiveDate')
 
@@ -42,29 +45,7 @@ class Project(pydantic.BaseModel):
             raise ValueError('Invalid datetime.')
         return datetime.strftime(dt, '%d-%m-%Y %H:%M:%S')
 
-    @pydantic.field_validator('additional_fields', mode='before')
-    def validate_additional_fields(cls, value: Optional[Dict]) -> Optional[Dict]:
-        """Validate additional fields."""
-        if not value:
-            return value
-        value = {to_snake_case(key): value for key, value in value.items()}
-        return value
-
-    @pydantic.model_serializer(when_used='json')
-    def serialize(self) -> Dict:
-        """Serialize object to dict."""
-        additional_fields = (dump := self.model_dump()).pop('additional_fields') or {}
-        return dump | additional_fields
-
-    pydantic.ConfigDict(
-        populate_by_name=True,
-    )
-
-    def __str__(self) -> str:
-        """Return string representation of object."""
-        return f'{self.__class__.__name__}({"".join(f"{key}={value}, " for key, value in self.model_dump().items())})'
-
-
-def to_snake_case(name: str) -> str:
-    """Convert camel case to snake case."""
-    return ''.join(['_' + i.lower() if i.isupper() else i for i in name]).lstrip('_')
+    @pydantic.field_validator('group', mode='before')
+    def validate_group(cls, value: Dict) -> Group:
+        """Validate group field."""
+        return Group(**value)

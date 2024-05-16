@@ -1,5 +1,5 @@
 import keyword
-from typing import Dict, Optional, List
+from typing import Dict, Optional, List, Any, Union
 
 import pydantic
 
@@ -10,6 +10,7 @@ from hivepy.models.unknown_hive_object import UnknownHiveObject
 class Field(UnknownHiveObject):
     """Field model."""
     name: str
+    value: Optional[Any] = pydantic.Field(default=None)
     display_name: str = pydantic.Field(alias='displayName')
     type: FieldType
 
@@ -18,7 +19,7 @@ class Field(UnknownHiveObject):
     placeholder_link_text: Optional[str] = pydantic.Field(default=None, alias='placeholderLinkText')
     placeholder_link_url: Optional[str] = pydantic.Field(default=None, alias='placeholderLinkUrl')
 
-    allowed_values: Optional[List[Dict]] = pydantic.Field(default=None, alias='allowedValues')
+    allowed_values: Optional[Union[Dict, List]] = pydantic.Field(default=None, alias='allowedValues')
 
     hidden: bool
     initially_collapsed: Optional[bool] = pydantic.Field(default=None, alias='initiallyCollapsed')
@@ -40,3 +41,7 @@ class Field(UnknownHiveObject):
             return v
         [v.update({key: val}) for key, val in metadata.items()]
         return v
+
+    def __str__(self) -> str:
+        """Return string representation."""
+        return self.value

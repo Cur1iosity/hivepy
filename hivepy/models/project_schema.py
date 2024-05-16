@@ -23,3 +23,8 @@ class ProjectSchema(UnknownHiveObject):
     def validate_additional_fields_settings(cls, v: List[Dict]) -> List[Field]:
         """Validate additional fields settings."""
         return [Field(**field) for field in v]
+
+    @property
+    def field_names(self) -> List[str]:
+        """Return field names."""
+        return [field.name for field in self.additional_fields_settings]

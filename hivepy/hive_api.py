@@ -1,19 +1,39 @@
+import functools
 import uuid
 from typing import Dict, Optional, Self, List, Union
 
-from hivepy.rest import exceptions
-from hivepy.rest.state import State
-from hivepy.utils import HTTPClient
+from hivepy.enums import ObjectType
+from hivepy.factories import ObjectFactory
 from hivepy.models import Project, Issue
+from hivepy.rest import State, exceptions
+from hivepy.utils import HTTPClient
 
 
 class HiveApi:
     def __init__(self):
         """Initialize RestHive."""
         self.base_url: Optional[str] = None
+        self.object_factory: ObjectFactory = ObjectFactory()
 
         self.state: State = State.NOT_CONNECTED
         self.http_client: HTTPClient = HTTPClient()
+
+    @staticmethod
+    def build(object_type: ObjectType):
+        """Build object."""
+
+        def decorator(func):
+            """Decorator."""
+
+            @functools.wraps(func)
+            def wrapper(self, *args, **kwargs):
+                """Wrapper."""
+                object_data = func(self, *args, **kwargs)
+                return self.object_factory(object_type, object_data)
+
+            return wrapper
+
+        return decorator
 
     def authenticate(self, username: str, password: str) -> None:
         """Authenticate in Hive."""
@@ -95,6 +115,7 @@ class HiveApi:
         response = self.http_client.post(f'{self.base_url}/project/filter', params=params)
         return [Project(**x) for x in response.get('items', [])]
 
+    @build(ObjectType.PROJECT)
     def get_project(self, project_id: Union[str, uuid.UUID]) -> Dict:
         """Get project by ID."""
         response = self.http_client.get(f'{self.base_url}/project/{project_id}')
