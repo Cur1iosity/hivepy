@@ -1,0 +1,790 @@
+{
+    "applicationConnect": null,
+    "connectionName": null,
+    "data": {},
+    "defaultReportTemplateName": "",
+    "group": {
+        "description": "",
+        "fullSlug": "/default/mts/pentests",
+        "id": "9b77dc52-fec4-410a-a016-c50a638cd16c",
+        "name": "Pentests",
+        "slug": "pentests"
+    },
+    "issueSettings": {
+        "additionalFieldsSettings": [
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Asset owner",
+                        "value": "Asset_owner"
+                    },
+                    {
+                        "displayValue": "ISBP",
+                        "value": "ISBP"
+                    },
+                    {
+                        "displayValue": "SOC",
+                        "value": "SOC"
+                    },
+                    {
+                        "displayValue": "Manual [srv-redteam]",
+                        "value": "Manual_srv_redteam_"
+                    },
+                    {
+                        "displayValue": "Awareness",
+                        "value": "Awareness"
+                    },
+                    {
+                        "displayValue": "Physical Security",
+                        "value": "Physical_Security"
+                    },
+                    {
+                        "displayValue": "Gitlab owner (only for repos)",
+                        "value": "Gitlab_owner_only_for_repos_"
+                    },
+                    {
+                        "displayValue": "Confluence owner (only for confluence pages)",
+                        "value": "Confluence_owner_only_for_confluence_pages_"
+                    },
+                    {
+                        "displayValue": "Конкретный пользователь (логин rua/adm в поле Target user ниже)",
+                        "value": "Konkrietnyi_pol_zovatiel_loghin_rua_adm_v_polie_Target_user_nizhie_"
+                    }
+                ],
+                "displayName": "Assignment",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "select": false
+                },
+                "name": "assignment",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Assignment user",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "rua*** / adm***"
+                },
+                "name": "targetUser",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Affected URLs",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "* url1\n* url2\n* url3"
+                },
+                "name": "affectedUrLs",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Внутри инфраструктуры",
+                        "value": "Vnutri_infrastruktury"
+                    },
+                    {
+                        "displayValue": "На периметре Банка",
+                        "value": "Na_pierimietrie_Banka"
+                    },
+                    {
+                        "displayValue": "Другое",
+                        "value": "Drughoie"
+                    }
+                ],
+                "displayName": "Area",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "select": true
+                },
+                "name": "area",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Port",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "80,443,8080"
+                },
+                "name": "port",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Critical",
+                        "value": "Critical"
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": "High"
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": "Medium"
+                    },
+                    {
+                        "displayValue": "Low",
+                        "value": "Low"
+                    }
+                ],
+                "displayName": "Severity",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "select": true
+                },
+                "name": "severity",
+                "required": true,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Описание уязвимости"
+                },
+                "name": "description",
+                "required": true,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "External References",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Если хотите приложить ссылки на какие-то внешние материалы - сюда."
+                },
+                "name": "externalReferences",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "TTP",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "T1234"
+                },
+                "name": "ttp",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Secret Management",
+                        "value": "Secret_Management"
+                    },
+                    {
+                        "displayValue": "Access Controls",
+                        "value": "Access_Controls"
+                    },
+                    {
+                        "displayValue": "Auditing and Logging",
+                        "value": "Auditing_and_Logging"
+                    },
+                    {
+                        "displayValue": "Authentication",
+                        "value": "Authentication"
+                    },
+                    {
+                        "displayValue": "Configuration",
+                        "value": "Configuration"
+                    },
+                    {
+                        "displayValue": "Cryptography",
+                        "value": "Cryptography"
+                    },
+                    {
+                        "displayValue": "Data Exposure",
+                        "value": "Data_Exposure"
+                    },
+                    {
+                        "displayValue": "Data Validation",
+                        "value": "Data_Validation"
+                    },
+                    {
+                        "displayValue": "Denial of Service",
+                        "value": "Denial_of_Service"
+                    },
+                    {
+                        "displayValue": "Error Reporting",
+                        "value": "Error_Reporting"
+                    },
+                    {
+                        "displayValue": "Patching",
+                        "value": "Patching"
+                    },
+                    {
+                        "displayValue": "Session Management",
+                        "value": "Session_Management"
+                    },
+                    {
+                        "displayValue": "Timing",
+                        "value": "Timing"
+                    }
+                ],
+                "displayName": "Vulnerability category",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "placeholder": "Можно выбрать несколько",
+                    "select": true
+                },
+                "name": "vulnerabilityCategory",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS3 Vector",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L"
+                },
+                "name": "cvss3Vector",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS3 Score",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "10"
+                },
+                "name": "cvss3Score",
+                "required": false,
+                "type": "FLOAT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Impact",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Описание возможного влияния от эксплуатации"
+                },
+                "name": "impact",
+                "required": true,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Proof of concept",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Подтверждение наличия уязвимости.\n\nВ том числе скриншоты, код, файлы."
+                },
+                "name": "proofOfConcept",
+                "required": true,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Exploit time",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "YYYY/MM/DD HH:MM"
+                },
+                "name": "exploitTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Был детект",
+                        "value": "Byl_dietiekt"
+                    },
+                    {
+                        "displayValue": "Был частичный детект или обнаружено впоследствии",
+                        "value": "Byl_chastichnyi_dietiekt_ili_obnaruzhieno_vposliedstvii"
+                    },
+                    {
+                        "displayValue": "Не было детекта",
+                        "value": "Nie_bylo_dietiekta"
+                    }
+                ],
+                "displayName": "Detect",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "select": true
+                },
+                "name": "detect",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Compromised users",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "Список скомпрометированных УЗ для тикетов на смену пароля, по 1 уз на строчку.\n* srv-redteam\n* srv-redteam2\n* srv-redteam3"
+                },
+                "name": "skompromietirovannyieUz",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Рекомендации по устранению"
+                },
+                "name": "recommendations",
+                "required": true,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Не удален",
+                        "value": "Nie_udalien"
+                    },
+                    {
+                        "displayValue": "Удален",
+                        "value": "Udalien"
+                    }
+                ],
+                "displayName": "Persist status",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "Отсутствует",
+                    "select": true
+                },
+                "name": "persistRemoved",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Jira issues",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "Поле для автоматического проставления ссылок на тикеты. Заполнять не надо!"
+                },
+                "name": "jiraIssues",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "My Float",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Float"
+                },
+                "name": "myFloat",
+                "required": false,
+                "type": "FLOAT"
+            }
+        ],
+        "assetVersion": "SIMPLE",
+        "description": "Схема с secret-hunting-ом [WIP]",
+        "id": "b03efe43-1246-4d5a-bfcb-fa88451b956e",
+        "isDefault": false,
+        "name": "Pentest schema v1.4",
+        "order": [
+            "name",
+            "status",
+            "assignment",
+            "targetUser",
+            "ips",
+            "hostnames",
+            "affectedUrLs",
+            "area",
+            "port",
+            "severity",
+            "description",
+            "externalReferences",
+            "ttp",
+            "vulnerabilityCategory",
+            "weaknessType",
+            "cvss3Vector",
+            "cvss3Score",
+            "impact",
+            "proofOfConcept",
+            "exploitTime",
+            "detect",
+            "skompromietirovannyieUz",
+            "requests",
+            "recommendations",
+            "persistRemoved",
+            "jiraIssues",
+            "issueSourceType",
+            "cvssScore",
+            "cvssVector",
+            "myFloat",
+            "uuid",
+            "postTime",
+            "editTime",
+            "criticalityScore",
+            "probabilityScore",
+            "totalScore"
+        ],
+        "predefinedFieldsSettings": [
+            {
+                "allowedValues": [],
+                "displayName": "Название уязвимости",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Issue title here..."
+                },
+                "name": "name",
+                "required": true,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "uuid",
+                "hidden": true,
+                "isList": false,
+                "metadata": {},
+                "name": "uuid",
+                "required": false,
+                "type": "UUID"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Created",
+                "hidden": true,
+                "isList": false,
+                "metadata": {},
+                "name": "postTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Edited",
+                "hidden": true,
+                "isList": false,
+                "metadata": {},
+                "name": "editTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "IP addresses",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true
+                },
+                "name": "ips",
+                "required": false,
+                "type": "IP"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Hostnames",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true
+                },
+                "name": "hostnames",
+                "required": false,
+                "type": "HOSTNAME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Assets",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true,
+                    "structure": "assetStructure"
+                },
+                "name": "assets",
+                "required": false,
+                "type": "ASSET"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "HTTP requests",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "requestLabel": "HTTP request",
+                    "responseLabel": "HTTP response"
+                },
+                "name": "requests",
+                "required": false,
+                "type": "REQUEST"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    }
+                ],
+                "displayName": "Criticality",
+                "hidden": true,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Simple score"
+                },
+                "name": "criticalityScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    }
+                ],
+                "displayName": "Probability",
+                "hidden": true,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Simple score"
+                },
+                "name": "probabilityScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Info",
+                        "value": 0
+                    },
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    },
+                    {
+                        "displayValue": "Critical",
+                        "value": 4
+                    }
+                ],
+                "displayName": "Total risk",
+                "hidden": true,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Simple score"
+                },
+                "name": "totalScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS vector",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Ignore me 2",
+                    "initiallyCollapsed": true,
+                    "placeholder": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                },
+                "name": "cvssVector",
+                "required": false,
+                "type": "CVSS_BASE_VECTOR"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS score",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Ignore me 2",
+                    "initiallyCollapsed": true,
+                    "placeholder": "5.5"
+                },
+                "name": "cvssScore",
+                "required": false,
+                "type": "CVSS_BASE_SCORE"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Weakness type (CWE/CVE)",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "CWE-00 / CVE-2077-1234"
+                },
+                "name": "weaknessType",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Status",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "status",
+                "required": true,
+                "type": "STATUS"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Ignore me 1",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true
+                },
+                "name": "issueSourceType",
+                "required": false,
+                "type": "DATASOURCE"
+            }
+        ],
+        "scoreMethod": "SIMPLE",
+        "structures": [],
+        "timestamp": "2024-04-12T11:06:06.065637Z",
+        "userId": "9678e8b6-568f-4bce-b4ca-cf8de84a084e"
+    },
+    "lastIncomingPong": null,
+    "lastOutgoingPing": null,
+    "projectArchiveDate": null,
+    "projectConnectionId": null,
+    "projectCreateDate": "2024-04-23T14:03:02.715420Z",
+    "projectDescription": "Without trash hosts",
+    "projectEndDate": "2024-04-30T00:00:00.000000Z",
+    "projectFullSlug": "/default/q2-2024-it-grad",
+    "projectId": "53e7e94c-f8de-43ef-995f-120dc30047d4",
+    "projectIsArchived": false,
+    "projectName": "2024 Q2 IT GRAD",
+    "projectPermission": "ADMIN",
+    "projectSchema": null,
+    "projectScope": null,
+    "projectSlug": "q2-2024-it-grad",
+    "projectStartDate": "2024-04-23T00:00:00.000000Z",
+    "projectUpdateDate": "2024-05-13T09:35:08.672413Z",
+    "projectUsers": [
+        {
+            "permissionType": "OWNER",
+            "userEmail": "cur1@ro.ot",
+            "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78",
+            "userName": "RT | cur1"
+        },
+        {
+            "permissionType": "EDIT",
+            "userEmail": "sdb@ro.ot",
+            "userId": "d5d5ec68-04eb-4a1d-a0ff-ed32e036c649",
+            "userName": "RT | sdb"
+        },
+        {
+            "permissionType": "EDIT",
+            "userEmail": "over@ro.ot",
+            "userId": "5e79afae-8d7c-4caf-8a4f-002ebeab919e",
+            "userName": "RT | over"
+        },
+        {
+            "permissionType": "EDIT",
+            "userEmail": "evk@ro.ot",
+            "userId": "9678e8b6-568f-4bce-b4ca-cf8de84a084e",
+            "userName": "RT | evk"
+        },
+        {
+            "permissionType": "EDIT",
+            "userEmail": "ovprophet@ro.ot",
+            "userId": "438c1de2-97ae-42dc-8c32-f0258aa9dc79",
+            "userName": "RT | ovprophet"
+        },
+        {
+            "permissionType": "EDIT",
+            "userEmail": "dgolov@ro.ot",
+            "userId": "08234cc9-2a62-4a4e-8a08-5f801c6911b0",
+            "userName": "RT | dgolov"
+        },
+        {
+            "permissionType": "READONLY",
+            "userEmail": "vmbobyl@ro.ot",
+            "userId": "776f5899-09af-4b0b-9090-c3f947e57153",
+            "userName": "vmbobyl"
+        },
+        {
+            "permissionType": "READONLY",
+            "userEmail": "observer@ro.ot",
+            "userId": "ed83dbdf-970a-43be-93d4-9ad21a8f9753",
+            "userName": "Observer"
+        }
+    ]
+}

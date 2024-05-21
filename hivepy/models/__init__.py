@@ -3,8 +3,9 @@ from hivepy.models.group import Group
 from hivepy.models.issue import Issue
 from hivepy.models.project import Project
 from hivepy.models.base_project import BaseProject
-from hivepy.models.project_schema import ProjectSchema
+from hivepy.schema_management.models.project_schema import ProjectSchema
 from hivepy.models.unknown_hive_object import UnknownHiveObject
+
 
 __all__ = [
     'BaseProject',
@@ -14,4 +15,5 @@ __all__ = [
     'Field',
     'Group',
     'Issue',
+
 ]

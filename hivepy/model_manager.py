@@ -1,6 +1,6 @@
 from typing import Dict, Type, List
 
-from hivepy.lib import builders
+from hivepy import builders
 
 
 class ModelManager:

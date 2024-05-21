@@ -5,10 +5,10 @@ from typing import Dict, Optional, List
 import pydantic
 
 from hivepy.models.field import Field
-from hivepy.models.unknown_hive_object import UnknownHiveObject
+from hivepy.schema_management.models import BaseSchema
 
 
-class ProjectSchema(UnknownHiveObject):
+class ProjectSchema(BaseSchema):
     """Project schema model."""
     id: uuid.UUID
     predefined_fields_settings: List = pydantic.Field(default_factory=list, alias='predefinedFieldsSettings')

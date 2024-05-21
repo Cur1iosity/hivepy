@@ -1,0 +1,234 @@
+[
+      {
+        "allowedValues": [],
+        "displayName": "Test Multi Suggested Text Title",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "hint": "Test hint for text",
+          "initiallyCollapsed": true,
+          "placeholder": "Test Multiple Suggester"
+        },
+        "name": "multi_suggest_text",
+        "required": false,
+        "type": "TEXT_SUGGESTED"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Single SuggestedText Title",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "hint": "Hint",
+          "placeholder": "Single text suggester"
+        },
+        "name": "single_suggest_text",
+        "required": false,
+        "type": "TEXT_SUGGESTED"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Text Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "test placeholder"
+        },
+        "name": "text_field",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Integer Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Integer"
+        },
+        "name": "integer_field",
+        "required": false,
+        "type": "INTEGER"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Float Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Float"
+        },
+        "name": "float_field",
+        "required": false,
+        "type": "FLOAT"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "My Markdown",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Mark"
+        },
+        "name": "markdown",
+        "required": false,
+        "type": "TEXT_MD"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "SingleCheckbox",
+        "hidden": false,
+        "isList": false,
+        "metadata": {},
+        "name": "checkbox",
+        "required": false,
+        "type": "BOOLEAN"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "MultiCheckboxes",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "select": false
+        },
+        "name": "checkboxes",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "SingleSelect",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Placeholder",
+          "select": true
+        },
+        "name": "select",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "MultiSelect",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "select": true
+        },
+        "name": "multiselect",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "RadioButton",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "select": false
+        },
+        "name": "radiobutton",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Date",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "YYYY/MM/DD"
+        },
+        "name": "date",
+        "required": false,
+        "type": "DATE"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Datetime",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "initiallyCollapsed": true,
+          "placeholder": "YYYY/MM/DD HH:MM"
+        },
+        "name": "datetime",
+        "required": false,
+        "type": "DATETIME"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "File",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "placeholder": "File"
+        },
+        "name": "file",
+        "required": false,
+        "type": "FILE"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Picture",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Image"
+        },
+        "name": "image",
+        "required": false,
+        "type": "IMAGE"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "External link",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholderLinkText": "Text to display",
+          "placeholderLinkUrl": "URL to which the link should refer to"
+        },
+        "name": "link",
+        "required": false,
+        "type": "LINK"
+      }
+    ]

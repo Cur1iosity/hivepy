@@ -3,7 +3,7 @@ from typing import Dict, Optional, List, Any, Union
 
 import pydantic
 
-from hivepy.enums import FieldType
+from hivepy.field_management.enums import BaseFieldType
 from hivepy.models.unknown_hive_object import UnknownHiveObject
 
 
@@ -12,7 +12,7 @@ class Field(UnknownHiveObject):
     name: str
     value: Optional[Any] = pydantic.Field(default=None)
     display_name: str = pydantic.Field(alias='displayName')
-    type: FieldType
+    type: BaseFieldType
 
     hint: Optional[str] = pydantic.Field(default=None)
     placeholder: Optional[str] = pydantic.Field(default=None)
