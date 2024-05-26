@@ -1,3 +1,7 @@
 from hivepy.schema_management.models.issue_schema import IssueSchema
 from hivepy.schema_management.models.project_schema import ProjectSchema
-from hivepy.schema_management.models.base_schema import BaseSchema
+
+__all__ = [
+    "IssueSchema",
+    "ProjectSchema",
+]

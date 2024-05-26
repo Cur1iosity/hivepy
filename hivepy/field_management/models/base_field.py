@@ -6,7 +6,7 @@ import pydantic
 class BaseField(pydantic.BaseModel):
     display_name: str = pydantic.Field(alias='displayName')
     name: str
-    type: BaseFieldType
+    type: Optional[BaseFieldType] = pydantic.Field(default=None)
     value: Optional[Any] = pydantic.Field(default=None)
     allowed_values: Optional[List[str]] = pydantic.Field(default=list(), alias='allowedValues')
     is_list: bool = pydantic.Field(default=False, alias='isList')

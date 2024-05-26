@@ -1,83 +1,98 @@
+from typing import Optional
+
+import pydantic
+
 from hivepy.field_management.enums import FieldType
 from hivepy.field_management.models import BaseField
 
 
-class Text(BaseField):
+class Field(BaseField):
+    """Field class."""
+    type: None = pydantic.Field(default=None, exclude=True)
+
+    @pydantic.field_validator('type', mode='before')
+    def clear_type(cls, v: Optional[FieldType]) -> None:
+        """Clear type."""
+        v = None
+        return v
+
+
+class Text(Field):
     """Text field."""
     ...
 
 
-class SingleTextSuggested(BaseField):
+class SingleTextSuggested(Field):
     """Text field with single suggested value."""
     ...
 
 
-class MultiTextSuggested(BaseField):
+class MultiTextSuggested(Field):
     """Text field with suggested values."""
     ...
 
 
-class Checkbox(BaseField):
+class Checkbox(Field):
     """Single checkbox field."""
     ...
 
 
-class Checkboxes(BaseField):
+class Checkboxes(Field):
     """Checkboxes field."""
     ...
 
 
-class RadioButton(BaseField):
+class RadioButton(Field):
     """RadioButtons field."""
     ...
 
 
-class Select(BaseField):
+class Select(Field):
     """Select field."""
     ...
 
 
-class MultiSelect(BaseField):
+class MultiSelect(Field):
     """MultiSelect field."""
     ...
 
 
-class Link(BaseField):
+class Link(Field):
     """Link field."""
     ...
 
 
-class TextMarkdown(BaseField):
+class TextMarkdown(Field):
     """Text field with markdown."""
     ...
 
 
-class Image(BaseField):
+class Image(Field):
     """Image field."""
     ...
 
 
-class File(BaseField):
+class File(Field):
     """File field."""
     ...
 
 
-class Float(BaseField):
+class Float(Field):
     """Float field."""
     ...
 
 
-class Integer(BaseField):
+class Integer(Field):
     """Integer field."""
     ...
 
 
-class Date(BaseField):
+class Date(Field):
     """Date field."""
     ...
 
 
-class DateTime(BaseField):
+class DateTime(Field):
     """DateTime field."""
     ...
 

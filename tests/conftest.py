@@ -4,10 +4,11 @@ from typing import Dict, Type, List
 
 import pytest
 
-from hivepy.builders import FieldModelBuilder
 from hivepy.field_management import JsonFieldNormalizer, FIELD_TYPE_MAP
+from hivepy.field_management.builder import FieldModelBuilder, FieldBuilder
 from hivepy.field_management.enums import BaseFieldType, FieldType
 from hivepy.field_management.models import BaseField
+from hivepy.schema_management.builders import ProjectSchemaBuilder
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'test_data')
@@ -49,6 +50,12 @@ def example_field_data(example_raw_fields_data) -> Dict:
 
 
 @pytest.fixture
+def example_project_schema_data() -> Dict:
+    """Returns example project schema data."""
+    return load_json('example_project_schema.json')
+
+
+@pytest.fixture
 def json_field_normalizer() -> JsonFieldNormalizer:
     """Returns BaseFieldFactory class."""
     return JsonFieldNormalizer()
@@ -61,9 +68,15 @@ def field_model_builder() -> FieldModelBuilder:
 
 
 @pytest.fixture
-def field_builder() -> FieldModelBuilder:
+def field_builder() -> FieldBuilder:
     """Returns FieldModelBuilder class."""
-    return FieldModelBuilder()
+    return FieldBuilder()
+
+
+@pytest.fixture
+def project_schema_builder() -> ProjectSchemaBuilder:
+    """Returns ProjectSchemaBuilder class."""
+    return ProjectSchemaBuilder()
 
 
 @pytest.fixture

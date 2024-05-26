@@ -10,7 +10,6 @@ def test_text_initialization(example_field_data, field_type_map, field_type, jso
     assert field.required == field_data['required']
     assert field.hidden == field_data['hidden']
     assert field.initially_collapsed == field_data['initially_collapsed']
-    assert field.type == field_type.TEXT
     assert field.placeholder == field_data['placeholder']
     assert field.hint == field_data['hint']
 
@@ -27,7 +26,6 @@ def test_text_markdown_initialization(example_field_data, field_type_map, field_
     assert field.required == field_data['required']
     assert field.hidden == field_data['hidden']
     assert field.initially_collapsed == field_data['initially_collapsed']
-    assert field.type == field_type.TEXT_MARKDOWN
     assert field.placeholder == field_data['placeholder']
     assert field.hint == field_data['hint']
 
@@ -44,7 +42,6 @@ def test_integer_initialization(example_field_data, field_type_map, field_type, 
     assert field.required == field_data['required']
     assert field.hidden == field_data['hidden']
     assert field.initially_collapsed == field_data['initially_collapsed']
-    assert field.type == field_type.INTEGER
     assert field.placeholder == field_data['placeholder']
     assert field.hint == field_data['hint']
 

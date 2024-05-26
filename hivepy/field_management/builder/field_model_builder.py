@@ -46,56 +46,56 @@ class FieldModelBuilder:
     @classmethod
     def is_text(cls, base_field: Dict) -> bool:
         """Check if field is text field."""
-        return base_field['type'] == BaseFieldType.TEXT and not base_field['allowed_values']
+        return base_field['type'] == BaseFieldType.TEXT and not base_field.get('allowed_values')
 
     @classmethod
     def is_single_suggested_text(cls, base_field: Dict) -> bool:
         """Check if field is single suggested text field."""
-        return base_field['type'] == BaseFieldType.TEXT_SUGGESTED and (base_field.get('is_list') is False)
+        return base_field['type'] == BaseFieldType.TEXT_SUGGESTED and base_field.get('is_list') is False
 
     @classmethod
     def is_multi_suggested_text(cls, base_field: Dict) -> bool:
         """Check if field is multi suggested text field."""
-        return base_field['type'] == BaseFieldType.TEXT_SUGGESTED and base_field['is_list'] is True
+        return base_field['type'] == BaseFieldType.TEXT_SUGGESTED and base_field.get('is_list') is True
 
     @classmethod
     def is_radiobutton(cls, base_field: Dict) -> bool:
         """Check if field is radiobutton field."""
         return base_field['type'] == BaseFieldType.TEXT \
-            and base_field['allowed_values'] \
-            and base_field['is_list'] is False \
-            and base_field['select'] is False
+            and base_field.get('allowed_values') \
+            and base_field.get('is_list') is False \
+            and base_field.get('select') is False
 
     @classmethod
     def is_checkbox(cls, base_field: Dict) -> bool:
         """Check if field is single checkbox field."""
-        return (base_field['type'] == BaseFieldType.BOOLEAN
-                and not base_field.get('allowed_values', None)
-                and not base_field.get('is_list', False)
-                and not base_field.get('select', False))
+        return base_field['type'] == BaseFieldType.BOOLEAN \
+            and not base_field.get('allowed_values') \
+            and not base_field.get('is_list', False) \
+            and not base_field.get('select', False)
 
     @classmethod
     def is_checkboxes(cls, base_field: Dict) -> bool:
         """Check if field is checkboxes field."""
-        return (base_field['type'] == BaseFieldType.TEXT
-                and base_field['allowed_values']
-                and base_field.get('is_list', False)
-                and not base_field.get('select', False))
+        return base_field['type'] == BaseFieldType.TEXT \
+            and base_field.get('allowed_values') \
+            and base_field.get('is_list', False) \
+            and not base_field.get('select', False)
 
     @classmethod
     def is_select(cls, base_field: Dict) -> bool:
         """Check if field is select field."""
         return (base_field['type'] == BaseFieldType.TEXT
-                and base_field['allowed_values']
-                and not base_field.get('is_list', False)
-                and base_field.get('select', False))
+                and base_field.get('allowed_values')
+                and not base_field.get('is_list')
+                and base_field.get('select'))
 
     @classmethod
     def is_multiselect(cls, base_field: Dict) -> bool:
         """Check if field is multi select field."""
         return base_field['type'] == BaseFieldType.TEXT \
-            and base_field['allowed_values'] \
-            and base_field['is_list'] \
+            and base_field.get('allowed_values') \
+            and base_field.get('is_list') \
             and base_field.get('select')
 
     @classmethod
@@ -143,7 +143,8 @@ class FieldModelBuilder:
         final_type: FieldType = self.define_field_type(field)
         extra_fields = {
             'type': (Optional[FieldType], final_type),
-            'value': (Optional[ValueType[final_type.name].value], None)}
+            'value': (Optional[ValueType[final_type.name].value], None)
+        }
 
         model = pydantic.create_model(
             FIELD_TYPE_MAP[final_type].__name__,
