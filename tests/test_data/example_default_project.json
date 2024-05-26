@@ -725,66 +725,24 @@
     "projectArchiveDate": null,
     "projectConnectionId": null,
     "projectCreateDate": "2024-04-23T14:03:02.715420Z",
-    "projectDescription": "Without trash hosts",
+    "projectDescription": "Test Description",
     "projectEndDate": "2024-04-30T00:00:00.000000Z",
     "projectFullSlug": "/default/q2-2024-it-grad",
     "projectId": "53e7e94c-f8de-43ef-995f-120dc30047d4",
     "projectIsArchived": false,
-    "projectName": "2024 Q2 IT GRAD",
+    "projectName": "Default Project Name",
     "projectPermission": "ADMIN",
     "projectSchema": null,
     "projectScope": null,
-    "projectSlug": "q2-2024-it-grad",
+    "projectSlug": "default-project-name",
     "projectStartDate": "2024-04-23T00:00:00.000000Z",
     "projectUpdateDate": "2024-05-13T09:35:08.672413Z",
     "projectUsers": [
         {
             "permissionType": "OWNER",
-            "userEmail": "cur1@ro.ot",
+            "userEmail": "Somebody@ro.ot",
             "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78",
-            "userName": "RT | cur1"
-        },
-        {
-            "permissionType": "EDIT",
-            "userEmail": "sdb@ro.ot",
-            "userId": "d5d5ec68-04eb-4a1d-a0ff-ed32e036c649",
-            "userName": "RT | sdb"
-        },
-        {
-            "permissionType": "EDIT",
-            "userEmail": "over@ro.ot",
-            "userId": "5e79afae-8d7c-4caf-8a4f-002ebeab919e",
-            "userName": "RT | over"
-        },
-        {
-            "permissionType": "EDIT",
-            "userEmail": "evk@ro.ot",
-            "userId": "9678e8b6-568f-4bce-b4ca-cf8de84a084e",
-            "userName": "RT | evk"
-        },
-        {
-            "permissionType": "EDIT",
-            "userEmail": "ovprophet@ro.ot",
-            "userId": "438c1de2-97ae-42dc-8c32-f0258aa9dc79",
-            "userName": "RT | ovprophet"
-        },
-        {
-            "permissionType": "EDIT",
-            "userEmail": "dgolov@ro.ot",
-            "userId": "08234cc9-2a62-4a4e-8a08-5f801c6911b0",
-            "userName": "RT | dgolov"
-        },
-        {
-            "permissionType": "READONLY",
-            "userEmail": "vmbobyl@ro.ot",
-            "userId": "776f5899-09af-4b0b-9090-c3f947e57153",
-            "userName": "vmbobyl"
-        },
-        {
-            "permissionType": "READONLY",
-            "userEmail": "observer@ro.ot",
-            "userId": "ed83dbdf-970a-43be-93d4-9ad21a8f9753",
-            "userName": "Observer"
+            "userName": "somebody"
         }
     ]
 }

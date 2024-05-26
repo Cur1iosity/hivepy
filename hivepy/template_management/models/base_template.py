@@ -1,8 +1,8 @@
 import pydantic
 
 
-class UnknownHiveObject(pydantic.BaseModel):
-    """Base model for all models."""
+class BaseTemplate(pydantic.BaseModel):
+    ...
 
     class Config:
         populate_by_name = True

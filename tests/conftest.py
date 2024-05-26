@@ -10,6 +10,8 @@ from hivepy.field_management.enums import BaseFieldType, FieldType
 from hivepy.field_management.models import BaseField
 from hivepy.schema_management.builders import ProjectSchemaBuilder
 from hivepy.schema_management.factories import SchemaFactory
+from hivepy.template_management.builders import TemplateBuilder
+from hivepy.project_management.project_builder import ProjectBuilder
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'test_data')
@@ -57,6 +59,30 @@ def example_project_schema_data() -> Dict:
 
 
 @pytest.fixture
+def example_default_project_template_data() -> Dict:
+    """Returns example default project data."""
+    return load_json('example_default_project_template.json')
+
+
+@pytest.fixture
+def example_project_template_data() -> Dict:
+    """Returns example project data."""
+    return load_json('example_project_template.json')
+
+
+@pytest.fixture
+def example_custom_project_data() -> Dict:
+    """Returns example project data."""
+    return load_json('example_custom_project.json')
+
+
+@pytest.fixture
+def example_default_project_data() -> Dict:
+    """Returns example project data."""
+    return load_json('example_default_project.json')
+
+
+@pytest.fixture
 def json_field_normalizer() -> JsonFieldNormalizer:
     """Returns BaseFieldFactory class."""
     return JsonFieldNormalizer()
@@ -87,21 +113,33 @@ def schema_factory():
 
 
 @pytest.fixture
+def template_builder() -> TemplateBuilder:
+    """Returns TemplateBuilder class."""
+    return TemplateBuilder()
+
+
+@pytest.fixture
+def project_builder() -> ProjectBuilder:
+    """Returns ProjectBuilder class."""
+    return ProjectBuilder()
+
+
+@pytest.fixture
 def base_field_class() -> Type[BaseField]:
     """Returns BaseField class."""
     return BaseField
 
 
 @pytest.fixture
-def field_type_map():
-    """Returns FIELD_TYPE_MAP."""
-    return FIELD_TYPE_MAP
-
-
-@pytest.fixture
 def base_field_type() -> Type[BaseFieldType]:
     """Returns BaseFieldType Enum."""
     return BaseFieldType
+
+
+@pytest.fixture
+def field_type_map():
+    """Returns FIELD_TYPE_MAP."""
+    return FIELD_TYPE_MAP
 
 
 @pytest.fixture

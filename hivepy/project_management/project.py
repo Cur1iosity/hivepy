@@ -1,26 +1,18 @@
 from datetime import datetime
-from typing import Dict, Optional, Any
+from typing import Dict, Optional, Any, List
 
 import pydantic
 
-from hivepy.models.group import Group
-from hivepy.models.unknown_hive_object import UnknownHiveObject
 
-
-class BaseProject(UnknownHiveObject):
+class Project(pydantic.BaseModel):
+    """Project model."""
     id: str = pydantic.Field(alias='projectId')
     name: str = pydantic.Field(alias='projectName')
     description: Optional[str] = pydantic.Field(default=None, alias='projectDescription')
 
-    slug: Optional[str] = pydantic.Field(default=None, alias='projectSlug')
-    full_slug: str = pydantic.Field(default=None, alias='projectFullSlug')
-
-    report_template: Optional[str] = pydantic.Field(default=None, alias='defaultReportTemplateName')
     scope: Optional[str] = pydantic.Field(default=None, alias='projectScope')
     permissions: Optional[Dict] = pydantic.Field(default=None, alias='projectPermissions')
-    group: Optional[Group] = pydantic.Field(default=None, alias='group')
 
-    issue_settings: Optional[Dict] = pydantic.Field(default=None, alias='issueSettings')
     is_archived: bool = pydantic.Field(default=None, alias='projectIsArchived')
     archive_date: Optional[str] = pydantic.Field(default=None, alias='projectArchiveDate')
 
@@ -28,6 +20,9 @@ class BaseProject(UnknownHiveObject):
     update_date: Optional[str] = pydantic.Field(default=None, alias='projectUpdateDate')
     start_date: Optional[str] = pydantic.Field(default=None, alias='projectStartDate')
     end_date: Optional[str] = pydantic.Field(default=None, alias='projectEndDate')
+    issue_settings: Optional[Dict] = pydantic.Field(default=None, alias='issueSettings')
+
+    users: Optional[List[Dict]] = pydantic.Field(default=None, alias='projectUsers')
 
     application_connect: Optional[str] = pydantic.Field(default=None, alias='applicationConnect', repr=False)
     connection_id: Optional[str] = pydantic.Field(default=None, alias='projectConnectionId', repr=False)
@@ -35,6 +30,9 @@ class BaseProject(UnknownHiveObject):
     last_incoming_pong: Optional[str] = pydantic.Field(default=None, alias='lastIncomingPong', repr=False)
     last_outgoing_ping: Optional[str] = pydantic.Field(default=None, alias='lastOutgoingPing', repr=False)
     connection: Optional[Any] = pydantic.Field(default=None, alias='hive', repr=False, exclude=True)
+
+    class Config:
+        populate_by_name = True
 
     @pydantic.field_validator('create_date', 'update_date', 'start_date', 'end_date', mode='before')
     def validate_datetime(cls, value: str) -> str:
@@ -45,7 +43,6 @@ class BaseProject(UnknownHiveObject):
             raise ValueError('Invalid datetime.')
         return datetime.strftime(dt, '%d-%m-%Y %H:%M:%S')
 
-    @pydantic.field_validator('group', mode='before')
-    def validate_group(cls, value: Dict) -> Group:
-        """Validate group field."""
-        return Group(**value)
+    def __str__(self) -> str:
+        """Return string representation of object."""
+        return f'{self.__class__.__name__}({"".join(f"{key}={value}, " for key, value in self.model_dump().items())})'

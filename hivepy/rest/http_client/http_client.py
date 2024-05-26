@@ -4,7 +4,7 @@ from typing import Dict, Self, Union, List
 import requests.utils
 from requests import Session, Response
 
-from hivepy.utils.http_client.exceptions import *
+from hivepy.rest.http_client.exceptions import *
 
 
 class HTTPMethod(StrEnum):

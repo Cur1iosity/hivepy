@@ -10,8 +10,10 @@ class ProjectSchemaBuilder:
     def build(cls, project_schema: dict) -> ProjectSchema:
         """Build ProjectSchema object from raw data."""
         data = project_schema.copy()
-        raw_fields = data.pop('additionalFieldsSettings', [])
-        data['additionalFieldsSettings'] = [cls.field_builder.build(field) for field in raw_fields]
+        raw_additional_fields = data.pop('additionalFieldsSettings', [])
+        raw_predefined_fields = data.pop('predefinedFieldsSettings', [])
+        data['additionalFieldsSettings'] = [cls.field_builder.build(field) for field in raw_additional_fields]
+        data['predefinedFieldsSettings'] = [cls.field_builder.build(field) for field in raw_predefined_fields]
         return ProjectSchema(**data)
 
     def __call__(self, project_schema: dict) -> ProjectSchema:

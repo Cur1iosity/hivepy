@@ -27,6 +27,14 @@ class SchemaFactory:
         """Make schema."""
         return self.schema_builder(schema_type, schema)
 
+    def make_issue_schema(self, schema: Dict) -> Schema:
+        """Make issue schema."""
+        return self.schema_builder('issue', schema)
+
+    def make_project_schema(self, schema: Dict) -> Schema:
+        """Make project schema."""
+        return self.schema_builder('project', schema)
+
     def __call__(self, schema_type: str, schema: Dict) -> Schema:
         """Call."""
         return self.make_schema(schema_type, schema)

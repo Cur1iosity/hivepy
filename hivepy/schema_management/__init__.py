@@ -8,4 +8,5 @@ __all__ = [
     "builders",
     "factories",
     "models",
+    'SchemaFactory',
 ]

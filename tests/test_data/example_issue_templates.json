@@ -1,0 +1,337 @@
+[
+    {
+        "edited": false,
+        "id": "11",
+        "keyWords": "xss reflected",
+        "name": "Reflected Cross-Site Scripting",
+        "pack": {
+            "author": "Vendor placeholder",
+            "description": "A couple of predefined issue templates",
+            "format": 1,
+            "id": "db676a88-d760-4661-9ab8-27f71c8923b9",
+            "last_update": "2021-07-29T08:42:04Z",
+            "locale": "en-US",
+            "name": "Demo issue template kit",
+            "packType": "PREDEFINED",
+            "userId": "dc890880-b52f-46a1-a2a3-755ac9951675",
+            "version": "0.4.1"
+        },
+        "packId": "db676a88-d760-4661-9ab8-27f71c8923b9",
+        "templateFields": {
+            "generalDescription": "It's possible to conduct Reflected XSS attacl the System's users. The vulnerability that leads to this attack is that data passed by the user is incorrectly processed and then reflected in the server response. Thus, the adversary can craft a special link by adding crafted JavaScript code in a vulnerable parameter. The code will then be reflected in the server response and executed in the user's browser in the context of the System's domain.",
+            "recommendations": "Sanitize all the parameters passed to the server by the user.",
+            "risksDescription": "By exploiting the vulnerability, the adversary can attack the System's user. To do so, the adversary needs to trick the user into following a crafted link. After the user has followed the link, the adversary can execute any JavaScript code in the user's browser in the context of the System's domain. This may lead to theft and modification of the user's data, execution of critical action on behalf of the user as well as complete compromise of the user and taking full control over the user's account.",
+            "technicalDescription": "XSS Reflected"
+        },
+        "templateSchema": {
+            "generalDescription": {
+                "allowedValues": [],
+                "displayName": "General description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "recommendations": {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "type": "TEXT_MD"
+            },
+            "risksDescription": {
+                "allowedValues": [],
+                "displayName": "Risks description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "technicalDescription": {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "type": "TEXT_MD"
+            }
+        }
+    },
+    {
+        "edited": false,
+        "id": "122",
+        "keyWords": "weak password postgres postgresql",
+        "name": "Weak password to PostgreSQL database",
+        "pack": {
+            "author": "Vendor placeholder",
+            "description": "A couple of predefined issue templates",
+            "format": 1,
+            "id": "db676a88-d760-4661-9ab8-27f71c8923b9",
+            "last_update": "2021-07-29T08:42:04Z",
+            "locale": "en-US",
+            "name": "Demo issue template kit",
+            "packType": "PREDEFINED",
+            "userId": "dc890880-b52f-46a1-a2a3-755ac9951675",
+            "version": "0.4.1"
+        },
+        "packId": "db676a88-d760-4661-9ab8-27f71c8923b9",
+        "templateFields": {
+            "generalDescription": "Account passwords for accessing the PostgreSQL database are weak. The adversary can use a special dictionary or use standard passwords during a bruteforce attack to access the PostgreSQL database.",
+            "recommendations": "Set strong passwords to all accounts to access PostgreSQL;\n\nRestrict the list of hosts that can connect to PostgreSQL, this can be done by changing the pg_hba.conf configuration.",
+            "risksDescription": "The adversary can connect to PostgreSQL servers and gain access to critical information stored in the database. In addition, the adversary can remotely execute arbitrary code in the system by connecting to the database using the built-in PROGRAM command.",
+            "technicalDescription": ""
+        },
+        "templateSchema": {
+            "generalDescription": {
+                "allowedValues": [],
+                "displayName": "General description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "recommendations": {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "type": "TEXT_MD"
+            },
+            "risksDescription": {
+                "allowedValues": [],
+                "displayName": "Risks description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "technicalDescription": {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "type": "TEXT_MD"
+            }
+        }
+    },
+    {
+        "edited": false,
+        "id": "159",
+        "keyWords": "leak, imagemagick",
+        "name": "Memory leaks due to image processing in ImageMagick (CVE-2017-15277)",
+        "pack": {
+            "author": "Vendor placeholder",
+            "description": "A couple of predefined issue templates",
+            "format": 1,
+            "id": "db676a88-d760-4661-9ab8-27f71c8923b9",
+            "last_update": "2021-07-29T08:42:04Z",
+            "locale": "en-US",
+            "name": "Demo issue template kit",
+            "packType": "PREDEFINED",
+            "userId": "dc890880-b52f-46a1-a2a3-755ac9951675",
+            "version": "0.4.1"
+        },
+        "packId": "db676a88-d760-4661-9ab8-27f71c8923b9",
+        "templateFields": {
+            "generalDescription": "A vulnerability in library ImageMagick (CVE-2017-15277), which leads to server memory leaks when processing GIF images. The memory leak occurs because the processing of images of this format uses an uninitialized section of server memory, which may contain various data used by the server. Then, from the image processed by the server, the adversary can restore the memory area that was used, and thus gain access to data stored in the server's RAM.",
+            "recommendations": "Update the ImageMagick library using the latest version from the official ImageMagick repo. Create an isolated container that will be used for the specific task of processing user images using ImageMagick, it is necessary to set the minimum necessary rights in the System, which will avoid serious consequences when exploiting new vulnerabilities in this library, if any.",
+            "risksDescription": "The adversary can get small portions of the server's memory that may contain different keys, passwords, session identifiers and other sensitive information. The consequences can range from user session compromise to server compromise.",
+            "technicalDescription": ""
+        },
+        "templateSchema": {
+            "generalDescription": {
+                "allowedValues": [],
+                "displayName": "General description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "recommendations": {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "type": "TEXT_MD"
+            },
+            "risksDescription": {
+                "allowedValues": [],
+                "displayName": "Risks description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "technicalDescription": {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "type": "TEXT_MD"
+            }
+        }
+    },
+    {
+        "edited": false,
+        "id": "245",
+        "keyWords": "bluekeep CVE-2019-0708",
+        "name": "BlueKeep vulnerability is not patched (CVE-2019-0708)",
+        "pack": {
+            "author": "Vendor placeholder",
+            "description": "A couple of predefined issue templates",
+            "format": 1,
+            "id": "db676a88-d760-4661-9ab8-27f71c8923b9",
+            "last_update": "2021-07-29T08:42:04Z",
+            "locale": "en-US",
+            "name": "Demo issue template kit",
+            "packType": "PREDEFINED",
+            "userId": "dc890880-b52f-46a1-a2a3-755ac9951675",
+            "version": "0.4.1"
+        },
+        "packId": "db676a88-d760-4661-9ab8-27f71c8923b9",
+        "templateFields": {
+            "generalDescription": "The Company's corporate network includes Windows computers vulnerable to BlueKeep (CVE-2019-0708). This vulnerability allows an attacker to execute arbitrary code without authentication, using the Remote Desktop Service (RDP) protocol. The vulnerability is exploited by sending special packets to the attacker while establishing a connection.",
+            "recommendations": "Install one of the corresponding patches on the target hosts: KB4499180, KB4499175, KB4500331.\n\n(Sources: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0708, https://support.microsoft.com/en-us/help/4500705/customer-guidance-for-cve-2019-0708).",
+            "risksDescription": "An attacker can execute arbitrary code on the target system with SYSTEM privileges, steal confidential information, user accounts, and use the server for other attacks.",
+            "technicalDescription": ""
+        },
+        "templateSchema": {
+            "generalDescription": {
+                "allowedValues": [],
+                "displayName": "General description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "recommendations": {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "type": "TEXT_MD"
+            },
+            "risksDescription": {
+                "allowedValues": [],
+                "displayName": "Risks description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "technicalDescription": {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "type": "TEXT_MD"
+            }
+        }
+    },
+    {
+        "edited": false,
+        "id": "7",
+        "keyWords": "ssrf",
+        "name": "Server Side Request Forgery",
+        "pack": {
+            "author": "Vendor placeholder",
+            "description": "A couple of predefined issue templates",
+            "format": 1,
+            "id": "db676a88-d760-4661-9ab8-27f71c8923b9",
+            "last_update": "2021-07-29T08:42:04Z",
+            "locale": "en-US",
+            "name": "Demo issue template kit",
+            "packType": "PREDEFINED",
+            "userId": "dc890880-b52f-46a1-a2a3-755ac9951675",
+            "version": "0.4.1"
+        },
+        "packId": "db676a88-d760-4661-9ab8-27f71c8923b9",
+        "templateFields": {
+            "generalDescription": "Server Side Request Forgery is an attack that, if successful, enables the adversary to send arbitrary requests from a vulnerable server. This allows the adversary to create a request for each address, including the adressess from the internal network and the 127.0.0.1 local address of a vulnerable server. This issue arise if an application has the functionality that allows for sending requests to other servers from the application. Moreover, the adversary can either completely or partially control the request. For example. specify an address, to which the request is sent, as one of parameters. In addition to that. request parameters aren't sufficiently filtered, which enables the adversaru to specify arbitrary parameters.",
+            "recommendations": "Implement a whitelist of addresses and domains, to which it's possible to send requests, if possible.\n\nFilter, normalize, and process call adresses. Normalize IP addresses befores requests (For example, 127.1 -> 127.0.0.1, 0x7F.0x00.0x00.0x01 -> 127.0.0.1). Check call addressess for them belonging to internal and local address in accordance with the range of addresses specified in RFC 5735; block requests if it falls in the range. In case it's a domain name allows a request for one time (protection from DNS-rebinding attacks), then conduct the mention checks of IP addresses.\n\nIn the request parser, forbid using not allows URL schemes, e.g., http:// and https://, thus forbiding parsing unsafe URL schemes, such as file://, dict://, ftp:// and gopher://.\n\nDuring execution of HTTP requests, don't forget about the likelihood of Redirect specified in the Location HTTP header. It's necessary either to block possible redirection or to check the address specified as a redirection address similar to the one described above, and check the URL scheme in a redirection address.\n\nValidating the response to a request made by the server to match the expected data. Exclude return of the request response to the user without processing.\n\nIt is also possible to move the server making requests to an isolated segment and give it minimal network rights, excluding the possibility to access the internal network. In this way an attacker will not be able to exploit the vulnerability on the internal network, but this approach requires a change in the architecture of the System.",
+            "risksDescription": "This attack enables the adversary to send arbitrary requests to the addresses of the local network as well as to the local address of a vulnerable server. The consequences depend on how much control the adversary has. For example, whether the adversary can control an IP address, port, URL scheme, and the body of a request. Depending on these, the adversary can call the services in the internal network accessible via available protocols as well as to the file system of a vulnerable server. If successful, this attack may lead to confidential data leaks, compromises of the services in the internal network or the services operating on a vulnerable server.",
+            "technicalDescription": ""
+        },
+        "templateSchema": {
+            "generalDescription": {
+                "allowedValues": [],
+                "displayName": "General description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "recommendations": {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "type": "TEXT_MD"
+            },
+            "risksDescription": {
+                "allowedValues": [],
+                "displayName": "Risks description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "type": "TEXT_MD"
+            },
+            "technicalDescription": {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "type": "TEXT_MD"
+            }
+        }
+    }
+]
