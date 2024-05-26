@@ -9,6 +9,7 @@ from hivepy.field_management.builder import FieldModelBuilder, FieldBuilder
 from hivepy.field_management.enums import BaseFieldType, FieldType
 from hivepy.field_management.models import BaseField
 from hivepy.schema_management.builders import ProjectSchemaBuilder
+from hivepy.schema_management.factories import SchemaFactory
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'test_data')
@@ -77,6 +78,12 @@ def field_builder() -> FieldBuilder:
 def project_schema_builder() -> ProjectSchemaBuilder:
     """Returns ProjectSchemaBuilder class."""
     return ProjectSchemaBuilder()
+
+
+@pytest.fixture
+def schema_factory():
+    """Returns SchemaFactory class."""
+    return SchemaFactory()
 
 
 @pytest.fixture
