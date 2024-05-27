@@ -19,7 +19,10 @@ class Field(BaseField):
 
 class Text(Field):
     """Text field."""
-    ...
+    @property
+    def field_info(self) -> str:
+        """Return field info."""
+        return f'{self.name}: {self.value}'
 
 
 class SingleTextSuggested(Field):
