@@ -25,6 +25,8 @@ def main() -> None:
         'url': 'http://127.0.0.1',
         'username': 'user',
         'password': 'password',
+        # 'proxy': 'http://127.0.0.1:8080', # Optional
+        # 'verify': False, # Optional
     }
 
     hive: HiveApi = HiveApi().connect(**auth)
