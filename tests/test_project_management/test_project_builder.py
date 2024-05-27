@@ -12,3 +12,5 @@ def test_custom_project_building(project_builder, example_custom_project_data) -
     assert project.id
     assert project.name
 
+# TODO Добавить десереализацию проектов в методы REST API
+# TODO Разработать issue_management и issue_template в template_management
