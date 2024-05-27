@@ -1,5 +1,7 @@
 # HivePy
-Small wrapper for [HexWay Hive](https://hexway.io/hive/) Rest API.
+Unofficial flexible library for [HexWay Hive](https://hexway.io/hive/) Rest API.
+
+#### Tested on HexWay Hive 0.62.8
 
 ## Installation
 ```bash
@@ -14,30 +16,18 @@ pip install hw-hivepy
 ## Usage
 
 ```python
-from hivepy import Hive
+from hivepy import HiveApi
 
 
 def main() -> None:
     """Main function."""
     auth = {
-        'server': 'http://127.0.0.1',
+        'url': 'http://127.0.0.1',
         'username': 'user',
         'password': 'password',
     }
 
-    hive: Hive = Hive().connect(**auth)
-
-    # Getting projects and its issues
-    hive.get_projects()
-    hive.get_projects(project_id='some-project-id')
-    hive.get_issues(project_id='some-project-id')
-
-    # Updating issue fields
-    hive.update_issue(project_id='some-project-id', issue_id='some-issue-id', status='ready')
-
-    # Download binary file
-    hive.get_file(project_id='some-project-id', file_id='some-file-id')
-
+    hive: HiveApi = HiveApi().connect(**auth)
 
 if __name__ == "__main__":
     main()
