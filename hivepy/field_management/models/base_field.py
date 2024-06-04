@@ -19,8 +19,9 @@ class BaseField(pydantic.BaseModel):
     placeholder_link_text: Optional[str] = pydantic.Field(default=None)
     placeholder_link_url: Optional[str] = pydantic.Field(default=None)
 
-    class Config:
-        populate_by_name = True
+    model_config = pydantic.ConfigDict(
+        populate_by_name=True
+    )
 
     def __str__(self) -> str:
         """Return string representation of object."""

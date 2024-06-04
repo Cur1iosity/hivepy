@@ -4,8 +4,9 @@ import pydantic
 class BaseTemplate(pydantic.BaseModel):
     ...
 
-    class Config:
-        populate_by_name = True
+    model_config = pydantic.ConfigDict(
+        populate_by_name=True
+    )
 
     def __str__(self) -> str:
         """Return string representation of object."""

@@ -31,8 +31,9 @@ class Project(pydantic.BaseModel):
     last_outgoing_ping: Optional[str] = pydantic.Field(default=None, alias='lastOutgoingPing', repr=False)
     connection: Optional[Any] = pydantic.Field(default=None, alias='hive', repr=False, exclude=True)
 
-    class Config:
-        populate_by_name = True
+    model_config = pydantic.ConfigDict(
+        populate_by_name=True
+    )
 
     @pydantic.field_validator('create_date', 'update_date', 'start_date', 'end_date', mode='before')
     def validate_datetime(cls, value: str) -> str:
