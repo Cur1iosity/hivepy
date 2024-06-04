@@ -1,4 +1,4 @@
-from hivepy import Hive
+from hivepy import HiveApi
 
 
 def main() -> None:
@@ -9,15 +9,12 @@ def main() -> None:
         'password': 'password',
     }
 
-    hive: Hive = Hive().connect(**auth)
+    hive: HiveApi = HiveApi().connect(**auth)
 
     # Getting projects and its issues
     hive.get_projects()
     hive.get_project(project_id='some-project-id')
     hive.get_issues(project_id='some-project-id')
-
-    # Updating issue fields
-    hive.update_issue(project_id='some-project-id', issue_id='some-issue-id', status='ready')
 
     # Download binary file
     hive.get_file(project_id='some-project-id', file_id='some-file-id')

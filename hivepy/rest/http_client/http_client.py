@@ -49,7 +49,7 @@ class HTTPClient:
         """Send GET request."""
         return self._send(HTTPMethod.GET, *args, **kwargs)
 
-    def post(self, *args, **kwargs) -> Dict:
+    def post(self, *args, **kwargs) -> Union[Dict, List, bytes]:
         """Send POST request."""
         return self._send(HTTPMethod.POST, *args, **kwargs)
 
