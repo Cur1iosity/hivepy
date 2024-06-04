@@ -47,8 +47,9 @@ class Issue(pydantic.BaseModel):
     risk_description: Optional[str] = pydantic.Field(default=None, alias='riskDescription')
     technical_description: Optional[str] = pydantic.Field(default=None, alias='technicalDescription')
 
-    class Config:
-        populate_by_name = True
+    model_config = pydantic.ConfigDict(
+        populate_by_name=True
+    )
 
     # @pydantic.field_validator('post_time', 'edit_time', mode='before')
     # def validate_datetime(cls, value: str) -> str:
