@@ -1,16 +1,4 @@
 {
-    "applicationConnect": null,
-    "connectionName": null,
-    "data": {},
-    "defaultReportTemplateName": "",
-    "group": {
-        "description": "",
-        "fullSlug": "/default/mts/pentests",
-        "id": "9b77dc52-fec4-410a-a016-c50a638cd16c",
-        "name": "Pentests",
-        "slug": "pentests"
-    },
-    "issueSettings": {
         "additionalFieldsSettings": [
             {
                 "allowedValues": [],
@@ -394,30 +382,4 @@
         ],
         "timestamp": "2024-05-16T07:10:32.388104Z",
         "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78"
-},
-    "lastIncomingPong": null,
-    "lastOutgoingPing": null,
-    "projectArchiveDate": null,
-    "projectConnectionId": null,
-    "projectCreateDate": "2024-04-23T14:03:02.715420Z",
-    "projectDescription": "Test Description",
-    "projectEndDate": "2024-04-30T00:00:00.000000Z",
-    "projectFullSlug": "/default/q2-2024-it-grad",
-    "projectId": "53e7e94c-f8de-43ef-995f-120dc30047d4",
-    "projectIsArchived": false,
-    "projectName": "Default Project Name",
-    "projectPermission": "ADMIN",
-    "projectSchema": null,
-    "projectScope": null,
-    "projectSlug": "default-project-name",
-    "projectStartDate": "2024-04-23T00:00:00.000000Z",
-    "projectUpdateDate": "2024-05-13T09:35:08.672413Z",
-    "projectUsers": [
-        {
-            "permissionType": "OWNER",
-            "userEmail": "Somebody@ro.ot",
-            "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78",
-            "userName": "somebody"
-        }
-    ]
 }

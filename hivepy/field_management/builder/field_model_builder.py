@@ -41,6 +41,24 @@ class FieldModelBuilder:
             return FieldType.INTEGER
         if cls.is_float(base_field):
             return FieldType.FLOAT
+        if cls.is_cvss_base_score(base_field):
+            return FieldType.CVSS_SCORE
+        if cls.is_cvss_base_vector(base_field):
+            return FieldType.CVSS_VECTOR
+        if cls.is_asset(base_field):
+            return FieldType.ASSET
+        if cls.is_request(base_field):
+            return FieldType.REQUEST
+        if cls.is_datasource(base_field):
+            return FieldType.DATASOURCE
+        if cls.is_status(base_field):
+            return FieldType.STATUS
+        if cls.is_hostname(base_field):
+            return FieldType.HOSTNAME
+        if cls.is_uuid(base_field):
+            return FieldType.UUID
+        if cls.is_ip(base_field):
+            return FieldType.IP
         raise ValueError(f"Unknown field type: {base_field['type']}\n{base_field}")
 
     @classmethod
@@ -137,6 +155,51 @@ class FieldModelBuilder:
     def is_float(cls, base_field: Dict) -> bool:
         """Check if field is float field."""
         return base_field['type'] == BaseFieldType.FLOAT
+
+    @classmethod
+    def is_cvss_base_score(cls, base_field: Dict) -> bool:
+        """Check if field is CVSS Base Score field."""
+        return base_field['type'] == BaseFieldType.CVSS_SCORE
+
+    @classmethod
+    def is_cvss_base_vector(cls, base_field: Dict) -> bool:
+        """Check if field is CVSS Base Vector field."""
+        return base_field['type'] == BaseFieldType.CVSS_VECTOR
+
+    @classmethod
+    def is_asset(cls, base_field: Dict) -> bool:
+        """Check if field is Asset field."""
+        return base_field['type'] == BaseFieldType.ASSET
+
+    @classmethod
+    def is_request(cls, base_field: Dict) -> bool:
+        """Check if field is Request field."""
+        return base_field['type'] == BaseFieldType.REQUEST
+
+    @classmethod
+    def is_datasource(cls, base_field: Dict) -> bool:
+        """Check if field is Datasource field."""
+        return base_field['type'] == BaseFieldType.DATASOURCE
+
+    @classmethod
+    def is_status(cls, base_field: Dict) -> bool:
+        """Check if field is Status field."""
+        return base_field['type'] == BaseFieldType.STATUS
+
+    @classmethod
+    def is_hostname(cls, base_field: Dict) -> bool:
+        """Check if field is Hostname field."""
+        return base_field['type'] == BaseFieldType.HOSTNAME
+
+    @classmethod
+    def is_uuid(cls, base_field: Dict) -> bool:
+        """Check if field is UUID field."""
+        return base_field['type'] == BaseFieldType.UUID
+
+    @classmethod
+    def is_ip(cls, base_field: Dict) -> bool:
+        """Check if field is IP field."""
+        return base_field['type'] == BaseFieldType.IP
 
     def build(self, field: Dict) -> ForwardRef('Field'):
         """Make from BaseField object advanced Field model."""

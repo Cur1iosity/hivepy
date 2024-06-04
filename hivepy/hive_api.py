@@ -2,8 +2,8 @@ import functools
 import uuid
 from typing import Dict, Optional, Self, List, Union
 
-from hivepy.enums import ObjectType
-from hivepy.rest import State, exceptions, HTTPClient
+# from hivepy.enums import ObjectType
+# from hivepy.rest import State, exceptions, HTTPClient
 
 
 class HiveApi:

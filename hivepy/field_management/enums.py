@@ -15,6 +15,15 @@ class BaseFieldType(StrEnum):
     DATETIME = "DATETIME"
     IMAGE = "IMAGE"
     LINK = "LINK"
+    UUID = "UUID"
+    IP = "IP"
+    HOSTNAME = "HOSTNAME"
+    ASSET = "ASSET"
+    REQUEST = "REQUEST"
+    DATASOURCE = "DATASOURCE"
+    STATUS = "STATUS"
+    CVSS_SCORE = "CVSS_BASE_SCORE"
+    CVSS_VECTOR = "CVSS_BASE_VECTOR"
 
 
 class FieldType(StrEnum):
@@ -35,16 +44,34 @@ class FieldType(StrEnum):
     LINK = "LINK"
     IMAGE = "IMAGE"
     FILE = "FILE"
+    UUID = "UUID"
+    IP = "IP"
+    HOSTNAME = "HOSTNAME"
+    ASSET = "ASSET"
+    REQUEST = "REQUEST"
+    DATASOURCE = "DATASOURCE"
+    STATUS = "STATUS"
+    CVSS_SCORE = "CVSS_BASE_SCORE"
+    CVSS_VECTOR = "CVSS_BASE_VECTOR"
 
 
 class ValueType(Enum):
-    """Enumeration of value types."""
+    """Enumeration of value types for different fields."""
     INTEGER = int
     FLOAT = float
     TEXT = str
+    UUID = str
+    STATUS = str
     TEXT_MARKDOWN = str
     SINGLE_TEXT_SUGGESTED = str
     MULTI_TEXT_SUGGESTED = list
+    HOSTNAME = list
+    IP = list
+    ASSET = list
+    REQUEST = list
+    DATASOURCE = str
+    CVSS_SCORE = int
+    CVSS_VECTOR = str
     CHECKBOX = bool
     RADIOBUTTON = str
     CHECKBOXES = list

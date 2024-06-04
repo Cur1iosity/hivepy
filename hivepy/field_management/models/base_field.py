@@ -37,7 +37,7 @@ class BaseField(pydantic.BaseModel):
             return []
 
         if hasattr(v[0], 'values'):
-            return [x['value'] for x in v]
+            return [x['displayValue'] for x in v]
 
         return v
 

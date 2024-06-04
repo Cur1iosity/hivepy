@@ -24,6 +24,31 @@ def test_making_project_schema(schema_factory):
     assert schema.version == 1
 
 
+def test_making_issue_schema(schema_factory):
+    """Test making schema."""
+    example_schema_data = {
+        'id': 'f6d4a506-0aa5-4b93-b5f7-44f8b4b7a449',
+        'order': ['test', 'test2'],
+        'created': '2021-09-29T14:00:00Z',
+        'name': 'Test Issue Schema',
+        'updated': None,
+        'additionalFieldsSettings': [{
+            "name": "test",
+            "displayName": "Test",
+            "type": "TEXT_SUGGESTED",
+            "allowedValues": [],
+            "hidden": False,
+            "isList": True,
+            "metadata": {
+              "hint": "Test hint for text",
+              "initiallyCollapsed": True,
+              "placeholder": "Test Multiple Suggester"
+            },
+        },],}
+    schema = schema_factory('issue', example_schema_data)
+    assert str(schema.id) == 'f6d4a506-0aa5-4b93-b5f7-44f8b4b7a449'
+
+
 def check_update_cache(schema_factory):
     """Check update cache."""
     example_schema_data = {

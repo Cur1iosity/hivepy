@@ -459,3 +459,66 @@ def test_file_model_building(example_field_data, field_model_builder, field_type
     field = json_field_normalizer(example_field_data['file'])
     model = field_model_builder(field)
     assert model.model_fields['type'].default == field_type.FILE
+
+
+def test_hostname_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test hostname-field model building."""
+    field = json_field_normalizer(example_field_data['hostname'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.HOSTNAME
+
+
+def test_ip_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test ip-field model building."""
+    field = json_field_normalizer(example_field_data['ip'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.IP
+
+
+def test_asset_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test asset-field model building."""
+    field = json_field_normalizer(example_field_data['asset'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.ASSET
+
+
+def test_request_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test request-field model building."""
+    field = json_field_normalizer(example_field_data['request'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.REQUEST
+
+
+def test_datasource_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test datasource-field model building."""
+    field = json_field_normalizer(example_field_data['datasource'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.DATASOURCE
+
+
+def test_status_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test status-field model building."""
+    field = json_field_normalizer(example_field_data['status'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.STATUS
+
+
+def test_cvss_score_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test cvss-base-score-field model building."""
+    field = json_field_normalizer(example_field_data['cvss_score'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.CVSS_SCORE
+
+
+def test_cvss_vector_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test cvss-base-vector-field model building."""
+    field = json_field_normalizer(example_field_data['cvss_vector'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.CVSS_VECTOR
+
+
+def test_uuid_field_model_building(example_field_data, field_model_builder, field_type, json_field_normalizer) -> None:
+    """Test uuid-field model building."""
+    field = json_field_normalizer(example_field_data['uuid'])
+    model = field_model_builder(field)
+    assert model.model_fields['type'].default == field_type.UUID

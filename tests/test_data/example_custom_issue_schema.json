@@ -1,0 +1,306 @@
+{
+    "additionalFieldsSettings": [
+        {
+            "allowedValues": [],
+            "displayName": "String Field Title",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "placeholder": "String"
+            },
+            "name": "string_field",
+            "required": false,
+            "type": "TEXT"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Integer Field Title",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "placeholder": "Integer"
+            },
+            "name": "integer_field",
+            "required": false,
+            "type": "INTEGER"
+        }
+    ],
+    "assetVersion": "COMPLEX",
+    "description": "Test Schema",
+    "id": "fa9ba04f-c2c1-4b32-a9e8-ca7c2fc9de7e",
+    "isDefault": false,
+    "name": "Test Schema",
+    "order": [
+        "name",
+        "status",
+        "postTime",
+        "editTime",
+        "probabilityScore",
+        "criticalityScore",
+        "totalScore",
+        "cvssScore",
+        "cvssVector",
+        "ips",
+        "hostnames",
+        "assets",
+        "requests",
+        "weaknessType",
+        "issueSourceType",
+        "string_field",
+        "integer_field",
+        "uuid"
+    ],
+    "predefinedFieldsSettings": [
+        {
+            "allowedValues": [],
+            "displayName": "Test Schema Title",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "placeholder": "Issue title here..."
+            },
+            "name": "name",
+            "required": true,
+            "type": "TEXT"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "uuid",
+            "hidden": true,
+            "isList": false,
+            "metadata": {},
+            "name": "uuid",
+            "required": false,
+            "type": "UUID"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Created",
+            "hidden": true,
+            "isList": false,
+            "metadata": {},
+            "name": "postTime",
+            "required": false,
+            "type": "DATETIME"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Edited",
+            "hidden": true,
+            "isList": false,
+            "metadata": {},
+            "name": "editTime",
+            "required": false,
+            "type": "DATETIME"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "IP addresses",
+            "hidden": true,
+            "isList": true,
+            "metadata": {
+                "extended": false,
+                "fieldset": "affectedAssets",
+                "fieldsetDisplayName": "Affected assets",
+                "select": true
+            },
+            "name": "ips",
+            "required": false,
+            "type": "IP"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Hostnames",
+            "hidden": true,
+            "isList": true,
+            "metadata": {
+                "extended": false,
+                "fieldset": "affectedAssets",
+                "fieldsetDisplayName": "Affected assets",
+                "select": true
+            },
+            "name": "hostnames",
+            "required": false,
+            "type": "HOSTNAME"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Affected assets",
+            "hidden": false,
+            "isList": true,
+            "metadata": {
+                "extended": false,
+                "fieldset": "affectedAssets",
+                "fieldsetDisplayName": "Affected assets",
+                "select": true
+            },
+            "name": "assets",
+            "required": false,
+            "type": "ASSET"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "HTTP requests",
+            "hidden": false,
+            "isList": true,
+            "metadata": {
+                "initiallyCollapsed": true,
+                "requestLabel": "HTTP request",
+                "responseLabel": "HTTP response"
+            },
+            "name": "requests",
+            "required": false,
+            "type": "REQUEST"
+        },
+        {
+            "allowedValues": [
+                {
+                    "displayValue": "Low",
+                    "value": 1
+                },
+                {
+                    "displayValue": "Medium",
+                    "value": 2
+                },
+                {
+                    "displayValue": "High",
+                    "value": 3
+                }
+            ],
+            "displayName": "Criticality",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "fieldset": "totalScore",
+                "fieldsetDisplayName": "Rating Matrix"
+            },
+            "name": "criticalityScore",
+            "required": false,
+            "type": "INTEGER"
+        },
+        {
+            "allowedValues": [
+                {
+                    "displayValue": "Low",
+                    "value": 1
+                },
+                {
+                    "displayValue": "Medium",
+                    "value": 2
+                },
+                {
+                    "displayValue": "High",
+                    "value": 3
+                }
+            ],
+            "displayName": "Probability",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "fieldset": "totalScore",
+                "fieldsetDisplayName": "Rating Matrix"
+            },
+            "name": "probabilityScore",
+            "required": false,
+            "type": "INTEGER"
+        },
+        {
+            "allowedValues": [
+                {
+                    "displayValue": "Info",
+                    "value": 0
+                },
+                {
+                    "displayValue": "Low",
+                    "value": 1
+                },
+                {
+                    "displayValue": "Medium",
+                    "value": 2
+                },
+                {
+                    "displayValue": "High",
+                    "value": 3
+                },
+                {
+                    "displayValue": "Critical",
+                    "value": 4
+                }
+            ],
+            "displayName": "Total risk",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "fieldset": "totalScore",
+                "fieldsetDisplayName": "Rating Matrix"
+            },
+            "name": "totalScore",
+            "required": false,
+            "type": "INTEGER"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "CVSS vector",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "fieldset": "cvssScore",
+                "fieldsetDisplayName": "CVSS Calculator"
+            },
+            "name": "cvssVector",
+            "required": false,
+            "type": "CVSS_BASE_VECTOR"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "CVSS score",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "fieldset": "cvssScore",
+                "fieldsetDisplayName": "CVSS Calculator"
+            },
+            "name": "cvssScore",
+            "required": false,
+            "type": "CVSS_BASE_SCORE"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Weakness type",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "placeholder": "CWE-79"
+            },
+            "name": "weaknessType",
+            "required": false,
+            "type": "TEXT"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Status",
+            "hidden": false,
+            "isList": false,
+            "metadata": {},
+            "name": "status",
+            "required": true,
+            "type": "STATUS"
+        },
+        {
+            "allowedValues": [],
+            "displayName": "Datasource",
+            "hidden": false,
+            "isList": false,
+            "metadata": {
+                "placeholder": "Manual"
+            },
+            "name": "issueSourceType",
+            "required": false,
+            "type": "DATASOURCE"
+        }
+    ],
+    "scoreMethod": "SIMPLE",
+    "structures": [],
+    "timestamp": "2024-05-28T05:33:46.686916Z",
+    "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78"
+}

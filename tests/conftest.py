@@ -8,10 +8,13 @@ from hivepy.field_management import JsonFieldNormalizer, FIELD_TYPE_MAP
 from hivepy.field_management.builder import FieldModelBuilder, FieldBuilder
 from hivepy.field_management.enums import BaseFieldType, FieldType
 from hivepy.field_management.models import BaseField
+from hivepy.issue_management.issue import Issue
+from hivepy.issue_management.issue_builder import IssueBuilder
+from hivepy.project_management.project_builder import ProjectBuilder
 from hivepy.schema_management.builders import ProjectSchemaBuilder
+from hivepy.schema_management.builders.issue_schema_builder import IssueSchemaBuilder
 from hivepy.schema_management.factories import SchemaFactory
 from hivepy.template_management.builders import TemplateBuilder
-from hivepy.project_management.project_builder import ProjectBuilder
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'test_data')
@@ -49,6 +52,15 @@ def example_field_data(example_raw_fields_data) -> Dict:
         'link': next(field for field in field_list if field['type'] == 'LINK'),
         'image': next(field for field in field_list if field['type'] == 'IMAGE'),
         'file': next(field for field in field_list if field['type'] == 'FILE'),
+        'uuid': next(field for field in field_list if field['type'] == 'UUID'),
+        'ip': next(field for field in field_list if field['type'] == 'IP'),
+        'hostname': next(field for field in field_list if field['type'] == 'HOSTNAME'),
+        'asset': next(field for field in field_list if field['type'] == 'ASSET'),
+        'request': next(field for field in field_list if field['type'] == 'REQUEST'),
+        'datasource': next(field for field in field_list if field['type'] == 'DATASOURCE'),
+        'status': next(field for field in field_list if field['type'] == 'STATUS'),
+        'cvss_score': next(field for field in field_list if field['type'] == 'CVSS_BASE_SCORE'),
+        'cvss_vector': next(field for field in field_list if field['type'] == 'CVSS_BASE_VECTOR'),
             }
 
 
@@ -65,6 +77,18 @@ def example_default_project_template_data() -> Dict:
 
 
 @pytest.fixture
+def example_custom_issue_schema_data() -> Dict:
+    """Returns example issue schema data."""
+    return load_json('example_custom_issue_schema.json')
+
+
+@pytest.fixture
+def example_default_issue_schema_data() -> Dict:
+    """Returns example issue schema data."""
+    return load_json('example_default_issue_schema.json')
+
+
+@pytest.fixture
 def example_project_template_data() -> Dict:
     """Returns example project data."""
     return load_json('example_project_template.json')
@@ -77,9 +101,21 @@ def example_custom_project_data() -> Dict:
 
 
 @pytest.fixture
+def example_custom_issue_data() -> Dict:
+    """Returns example issue data."""
+    return load_json('example_custom_issue.json')
+
+
+@pytest.fixture
 def example_default_project_data() -> Dict:
     """Returns example project data."""
     return load_json('example_default_project.json')
+
+
+@pytest.fixture
+def example_default_issue_data() -> Dict:
+    """Returns example issue data."""
+    return load_json('example_default_issue.json')
 
 
 @pytest.fixture
@@ -101,9 +137,15 @@ def field_builder() -> FieldBuilder:
 
 
 @pytest.fixture
-def project_schema_builder() -> ProjectSchemaBuilder:
+def project_schema_builder(field_builder) -> ProjectSchemaBuilder:
     """Returns ProjectSchemaBuilder class."""
-    return ProjectSchemaBuilder()
+    return ProjectSchemaBuilder(field_builder)
+
+
+@pytest.fixture
+def issue_schema_builder(field_builder) -> IssueSchemaBuilder:
+    """Returns ProjectSchemaBuilder class."""
+    return IssueSchemaBuilder(field_builder)
 
 
 @pytest.fixture
@@ -125,6 +167,12 @@ def project_builder() -> ProjectBuilder:
 
 
 @pytest.fixture
+def issue_builder() -> IssueBuilder:
+    """Returns ProjectBuilder class."""
+    return IssueBuilder()
+
+
+@pytest.fixture
 def base_field_class() -> Type[BaseField]:
     """Returns BaseField class."""
     return BaseField
@@ -137,7 +185,7 @@ def base_field_type() -> Type[BaseFieldType]:
 
 
 @pytest.fixture
-def field_type_map():
+def field_type_map() -> Dict[str, Type[FieldType]]:
     """Returns FIELD_TYPE_MAP."""
     return FIELD_TYPE_MAP
 
@@ -146,3 +194,9 @@ def field_type_map():
 def field_type() -> Type[FieldType]:
     """Returns FieldType Enum."""
     return FieldType
+
+
+@pytest.fixture
+def default_issue_class() -> Type[Issue]:
+    """Returns Issue class."""
+    return Issue

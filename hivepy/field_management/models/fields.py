@@ -1,4 +1,5 @@
-from typing import Optional
+import ipaddress
+from typing import Optional, List
 
 import pydantic
 
@@ -19,10 +20,7 @@ class Field(BaseField):
 
 class Text(Field):
     """Text field."""
-    @property
-    def field_info(self) -> str:
-        """Return field info."""
-        return f'{self.name}: {self.value}'
+    ...
 
 
 class SingleTextSuggested(Field):
@@ -100,6 +98,51 @@ class DateTime(Field):
     ...
 
 
+class UUID(Field):
+    """UUID field."""
+    ...
+
+
+class Ip(Field):
+    """IP field."""
+    value: Optional[List[ipaddress.IPv4Address]] = pydantic.Field(default_factory=list)
+
+
+class Hostname(Field):
+    """Hostname field."""
+    ...
+
+
+class Asset(Field):
+    """Asset field."""
+    ...
+
+
+class Request(Field):
+    """Request field."""
+    ...
+
+
+class Datasource(Field):
+    """Datasource field."""
+    ...
+
+
+class Status(Field):
+    """Status field."""
+    ...
+
+
+class CVSSBaseScore(Field):
+    """CVSS Base Score field."""
+    ...
+
+
+class CVSSBaseVector(Field):
+    """CVSS Base Vector field."""
+    ...
+
+
 FIELD_TYPE_MAP = {
     FieldType.INTEGER: Integer,
     FieldType.FLOAT: Float,
@@ -117,4 +160,13 @@ FIELD_TYPE_MAP = {
     FieldType.FILE: File,
     FieldType.DATE: Date,
     FieldType.DATETIME: DateTime,
+    FieldType.UUID: UUID,
+    FieldType.IP: Ip,
+    FieldType.HOSTNAME: Hostname,
+    FieldType.ASSET: Asset,
+    FieldType.REQUEST: Request,
+    FieldType.DATASOURCE: Datasource,
+    FieldType.STATUS: Status,
+    FieldType.CVSS_SCORE: CVSSBaseScore,
+    FieldType.CVSS_VECTOR: CVSSBaseVector,
 }

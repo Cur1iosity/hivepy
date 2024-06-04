@@ -1,6 +1,7 @@
 import functools
 from typing import Dict, Union
 
+from hivepy.field_management.builder.field_builder import FieldBuilder
 from hivepy.schema_management.builders.issue_schema_builder import IssueSchemaBuilder
 from hivepy.schema_management.builders.project_schema_builder import ProjectSchemaBuilder
 from hivepy.schema_management.models import IssueSchema, ProjectSchema
@@ -8,8 +9,9 @@ from hivepy.schema_management.models import IssueSchema, ProjectSchema
 
 class SchemaBuilder:
     """Class that builds schema objects."""
-    issue_schema_builder: IssueSchemaBuilder = IssueSchemaBuilder()
-    project_schema_builder: ProjectSchemaBuilder = ProjectSchemaBuilder()
+    field_builder: FieldBuilder = FieldBuilder()
+    issue_schema_builder: IssueSchemaBuilder = IssueSchemaBuilder(field_builder)
+    project_schema_builder: ProjectSchemaBuilder = ProjectSchemaBuilder(field_builder)
 
     @classmethod
     def build(cls, schema_type: str, schema: Dict) -> Union[IssueSchema, ProjectSchema]:
