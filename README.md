@@ -1,5 +1,5 @@
 [![Run Tests](https://github.com/Cur1iosity/hivepy/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Cur1iosity/hivepy/actions/workflows/run-tests.yml)
-[![PyPI](https://img.shields.io/pypi/v/hivepy)](https://pypi.org/project/hw-hivepy/)
+[![PyPI](https://img.shields.io/pypi/v/hw-hivepy)](https://pypi.org/project/hw-hivepy/)
 [![Hexway](https://img.shields.io/badge/hexway-visit%20site-blue)](https://hexway.io)
 
 # HivePy
