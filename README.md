@@ -9,6 +9,7 @@
     <img src="https://img.shields.io/github/v/release/Cur1iosity/hivepy" alt="GitHub release (latest by date)">
   </a>
 </p>
+
 # HivePy
 
 Unofficial flexible library for [HexWay Hive](https://hexway.io/hive/) Rest API.
