@@ -1,4 +1,16 @@
+<p align="center">
+  <a href="https://github.com/Cur1iosity/hivepy/actions/workflows/run-tests.yml">
+    <img src="https://github.com/Cur1iosity/hivepy/actions/workflows/run-tests.yml/badge.svg" alt="tests">
+  </a>
+  <a href="https://img.shields.io/badge/python-3.12-blue">
+    <img src="https://img.shields.io/badge/python-3.12-blue" alt="python-version">
+  </a>
+  <a href="https://img.shields.io/github/v/release/Cur1iosity/hivepy">
+    <img src="https://img.shields.io/github/v/release/Cur1iosity/hivepy" alt="GitHub release (latest by date)">
+  </a>
+</p>
 # HivePy
+
 Unofficial flexible library for [HexWay Hive](https://hexway.io/hive/) Rest API.
 
 #### Tested on HexWay Hive 0.62.8
