@@ -1,0 +1,385 @@
+{
+        "additionalFieldsSettings": [
+            {
+                "allowedValues": [],
+                "displayName": "Description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "name": "generalDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Risks",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "name": "risksDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "name": "technicalDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "name": "recommendations",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Steps to reproduce",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "Steps to reproduce..."
+                },
+                "name": "reproduceDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            }
+        ],
+        "assetVersion": "SIMPLE",
+        "description": "default",
+        "id": "25ad282f-5504-433a-9fe5-ab1c66af014c",
+        "isDefault": true,
+        "name": "default",
+        "order": [
+            "name",
+            "status",
+            "postTime",
+            "editTime",
+            "probabilityScore",
+            "criticalityScore",
+            "totalScore",
+            "weaknessType",
+            "ips",
+            "hostnames",
+            "assets",
+            "generalDescription",
+            "risksDescription",
+            "technicalDescription",
+            "recommendations",
+            "reproduceDescription",
+            "requests",
+            "issueSourceType"
+        ],
+        "predefinedFieldsSettings": [
+            {
+                "allowedValues": [],
+                "displayName": "Title",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Issue title here..."
+                },
+                "name": "name",
+                "required": true,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "uuid",
+                "hidden": true,
+                "isList": false,
+                "metadata": {},
+                "name": "uuid",
+                "required": false,
+                "type": "UUID"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Created",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "postTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Edited",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "editTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "IP addresses",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true
+                },
+                "name": "ips",
+                "required": false,
+                "type": "IP"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Hostnames",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true
+                },
+                "name": "hostnames",
+                "required": false,
+                "type": "HOSTNAME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Assets",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true,
+                    "structure": "assetStructure"
+                },
+                "name": "assets",
+                "required": false,
+                "type": "ASSET"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "HTTP requests",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "requestLabel": "HTTP request",
+                    "responseLabel": "HTTP response"
+                },
+                "name": "requests",
+                "required": false,
+                "type": "REQUEST"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    }
+                ],
+                "displayName": "Criticality",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Total score"
+                },
+                "name": "criticalityScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    }
+                ],
+                "displayName": "Probability",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Total score"
+                },
+                "name": "probabilityScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Info",
+                        "value": 0
+                    },
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    },
+                    {
+                        "displayValue": "Critical",
+                        "value": 4
+                    }
+                ],
+                "displayName": "Total risk",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Total score"
+                },
+                "name": "totalScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS vector",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "placeholder": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                },
+                "name": "cvssVector",
+                "required": false,
+                "type": "CVSS_BASE_VECTOR"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS score",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "placeholder": "5.5"
+                },
+                "name": "cvssScore",
+                "required": false,
+                "type": "CVSS_BASE_SCORE"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Weakness type",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "CWE-79"
+                },
+                "name": "weaknessType",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Status",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "status",
+                "required": true,
+                "type": "STATUS"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Datasource",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "issueSourceType",
+                "required": false,
+                "type": "DATASOURCE"
+            }
+        ],
+        "scoreMethod": "SIMPLE",
+        "structures": [
+            {
+                "fields": [
+                    {
+                        "allowedValues": [],
+                        "displayName": "IP",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "IP"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Hostname",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "HOSTNAME"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Port",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "INTEGER"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Path",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "TEXT"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Optional",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "TEXT"
+                    }
+                ],
+                "name": "assetStructure"
+            }
+        ],
+        "timestamp": "2024-05-16T07:10:32.388104Z",
+        "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78"
+}

@@ -1,0 +1,285 @@
+{
+  "checklists": [
+    {
+      "children": [],
+      "description": "",
+      "name": "TestCheck1"
+    },
+    {
+      "children": [],
+      "description": "",
+      "name": "TestCheck2"
+    }
+  ],
+  "defaultIssueSchemaID": "b03efe43-1246-4d5a-bfcb-fa88451b956e",
+  "defaultReportTemplateName": "test_report.docx",
+  "description": "Description of test template",
+  "id": "6e75998f-106a-406f-a65c-6720c753856c",
+  "isDefault": false,
+  "name": "Test Template",
+  "projectSchema": {
+    "additionalFieldsSettings": [
+      {
+        "allowedValues": [],
+        "displayName": "Test Multi Suggested Text Title",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "hint": "Test hint for text",
+          "initiallyCollapsed": true,
+          "placeholder": "Test Multiple Suggester"
+        },
+        "name": "test_multi_suggested_title2",
+        "required": false,
+        "type": "TEXT_SUGGESTED"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Single SuggestedText Title",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "hint": "Hint",
+          "placeholder": "Single text suggester"
+        },
+        "name": "test_single_suggest_text_title",
+        "required": false,
+        "type": "TEXT_SUGGESTED"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Text Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "test placeholder"
+        },
+        "name": "text_field",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Integer Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Integer"
+        },
+        "name": "integer_field",
+        "required": false,
+        "type": "INTEGER"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Float Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Float"
+        },
+        "name": "float_field",
+        "required": false,
+        "type": "FLOAT"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "My Markdown",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Mark"
+        },
+        "name": "markdown",
+        "required": false,
+        "type": "TEXT_MD"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "SingleCheckbox",
+        "hidden": false,
+        "isList": false,
+        "metadata": {},
+        "name": "single_checkbox",
+        "required": false,
+        "type": "BOOLEAN"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "MultiCheckboxes",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "select": false
+        },
+        "name": "multi_checkboxes",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "SingleSelect",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Placeholder",
+          "select": true
+        },
+        "name": "single_select",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "MultiSelect",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "select": true
+        },
+        "name": "multi_select",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "RadioButton",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "select": false
+        },
+        "name": "radio_button",
+        "required": false,
+        "type": "TEXT"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Date",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "YYYY/MM/DD"
+        },
+        "name": "date",
+        "required": false,
+        "type": "DATE"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Datetime",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "initiallyCollapsed": true,
+          "placeholder": "YYYY/MM/DD HH:MM"
+        },
+        "name": "datetime",
+        "required": false,
+        "type": "DATETIME"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "File",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "placeholder": "File"
+        },
+        "name": "file",
+        "required": false,
+        "type": "FILE"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "Picture",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Image"
+        },
+        "name": "image",
+        "required": false,
+        "type": "IMAGE"
+      },
+      {
+        "allowedValues": [],
+        "displayName": "External link",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholderLinkText": "Text to display",
+          "placeholderLinkUrl": "URL to which the link should refer to"
+        },
+        "name": "link",
+        "required": false,
+        "type": "LINK"
+      }
+    ],
+    "created": "2024-05-21T08:57:43.866641",
+    "fieldsOrder": [
+      "test_multi_suggested_title2",
+      "test_single_suggest_text_title",
+      "text_field",
+      "integer_field",
+      "float_field",
+      "markdown",
+      "multi_checkboxes",
+      "single_checkbox",
+      "single_select",
+      "multi_select",
+      "radio_button",
+      "date",
+      "datetime",
+      "file",
+      "image",
+      "link"
+    ],
+    "id": "51204911-4eee-41e4-a749-de3225ed5723",
+    "predefinedFieldsSettings": [],
+    "updated": null,
+    "version": 1
+  },
+  "wikiPages": [
+    {
+      "name": "TestPage",
+      "pageText": "WikiTestPage"
+    }
+  ]
+}

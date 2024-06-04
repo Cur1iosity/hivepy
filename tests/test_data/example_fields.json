@@ -1,0 +1,371 @@
+[
+      {
+        "allowedValues": [],
+        "displayName": "Test Multi Suggested Text Title",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "hint": "Test hint for text",
+          "initiallyCollapsed": true,
+          "placeholder": "Test Multiple Suggester"
+        },
+        "name": "multi_suggest_text",
+        "required": false,
+        "type": "TEXT_SUGGESTED"
+      },
+
+      {
+      "allowedValues": [],
+      "displayName": "uuid",
+      "hidden": true,
+      "isList": false,
+      "metadata": {},
+      "name": "uuid",
+      "required": false,
+      "type": "UUID"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Single SuggestedText Title",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "hint": "Hint",
+          "placeholder": "Single text suggester"
+        },
+        "name": "single_suggest_text",
+        "required": false,
+        "type": "TEXT_SUGGESTED"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Text Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "test placeholder"
+        },
+        "name": "text_field",
+        "required": false,
+        "type": "TEXT"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Integer Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Integer"
+        },
+        "name": "integer_field",
+        "required": false,
+        "type": "INTEGER"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Float Field",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Float"
+        },
+        "name": "float_field",
+        "required": false,
+        "type": "FLOAT"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "My Markdown",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Mark"
+        },
+        "name": "markdown",
+        "required": false,
+        "type": "TEXT_MD"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "SingleCheckbox",
+        "hidden": false,
+        "isList": false,
+        "metadata": {},
+        "name": "checkbox",
+        "required": false,
+        "type": "BOOLEAN"
+      },
+
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "MultiCheckboxes",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "select": false
+        },
+        "name": "checkboxes",
+        "required": false,
+        "type": "TEXT"
+      },
+
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "SingleSelect",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Placeholder",
+          "select": true
+        },
+        "name": "select",
+        "required": false,
+        "type": "TEXT"
+      },
+
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "MultiSelect",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "select": true
+        },
+        "name": "multiselect",
+        "required": false,
+        "type": "TEXT"
+      },
+
+      {
+        "allowedValues": [
+          {
+            "displayValue": "Option A",
+            "value": "Option A"
+          },
+          {
+            "displayValue": "Option B",
+            "value": "Option B"
+          }
+        ],
+        "displayName": "RadioButton",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "select": false
+        },
+        "name": "radiobutton",
+        "required": false,
+        "type": "TEXT"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Date",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "YYYY/MM/DD"
+        },
+        "name": "date",
+        "required": false,
+        "type": "DATE"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Datetime",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "initiallyCollapsed": true,
+          "placeholder": "YYYY/MM/DD HH:MM"
+        },
+        "name": "datetime",
+        "required": false,
+        "type": "DATETIME"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "File",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+          "placeholder": "File"
+        },
+        "name": "file",
+        "required": false,
+        "type": "FILE"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "Picture",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholder": "Image"
+        },
+        "name": "image",
+        "required": false,
+        "type": "IMAGE"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "External link",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "placeholderLinkText": "Text to display",
+          "placeholderLinkUrl": "URL to which the link should refer to"
+        },
+        "name": "link",
+        "required": false,
+        "type": "LINK"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "HTTP requests",
+        "hidden": false,
+        "isList": true,
+        "metadata": {
+            "initiallyCollapsed": true,
+            "requestLabel": "HTTP request",
+            "responseLabel": "HTTP response"
+        },
+        "name": "requests",
+        "required": false,
+        "type": "REQUEST"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "CVSS vector",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+          "fieldset": "totalScore",
+          "placeholder": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+        },
+        "name": "cvssVector",
+        "required": false,
+        "type": "CVSS_BASE_VECTOR"
+      },
+
+      {
+        "allowedValues": [],
+        "displayName": "CVSS score",
+        "hidden": false,
+        "isList": false,
+        "metadata": {
+            "fieldset": "totalScore",
+            "placeholder": "5.5"
+        },
+        "name": "cvssScore",
+        "required": false,
+        "type": "CVSS_BASE_SCORE"
+    },
+
+    {
+      "allowedValues": [],
+      "displayName": "Status",
+      "hidden": false,
+      "isList": false,
+      "metadata": {},
+      "name": "status",
+      "required": true,
+      "type": "STATUS"
+    },
+
+    {
+      "allowedValues": [],
+      "displayName": "Datasource",
+      "hidden": false,
+      "isList": false,
+      "metadata": {},
+      "name": "issueSourceType",
+      "required": false,
+      "type": "DATASOURCE"
+    },
+
+    {
+      "allowedValues": [],
+      "displayName": "IP addresses",
+      "hidden": false,
+      "isList": true,
+      "metadata": {
+          "fieldset": "affectedAssets",
+          "fieldsetDisplayName": "Affected assets",
+          "select": true
+      },
+      "name": "ips",
+      "required": false,
+      "type": "IP"
+    },
+
+    {
+      "allowedValues": [],
+      "displayName": "Hostnames",
+      "hidden": false,
+      "isList": true,
+      "metadata": {
+          "fieldset": "affectedAssets",
+          "fieldsetDisplayName": "Affected assets",
+          "select": true
+      },
+      "name": "hostnames",
+      "required": false,
+      "type": "HOSTNAME"
+    },
+
+    {
+      "allowedValues": [],
+      "displayName": "Assets",
+      "hidden": false,
+      "isList": true,
+      "metadata": {
+          "fieldset": "affectedAssets",
+          "fieldsetDisplayName": "Affected assets",
+          "select": true,
+          "structure": "assetStructure"
+      },
+      "name": "assets",
+      "required": false,
+      "type": "ASSET"
+   }
+]

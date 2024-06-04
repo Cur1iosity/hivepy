@@ -1,0 +1,54 @@
+{
+    "additionalFields": {
+        "integer_field": 5,
+        "string_field": "4"
+    },
+    "assets": [
+        {
+            "hostname": null,
+            "id": 26693,
+            "ip": "10.10.10.10",
+            "optional": null,
+            "path": null,
+            "port": 89,
+            "protocol": null,
+            "uuid": "1b2618bc-1208-49cd-974c-f3852174ae82"
+        }
+    ],
+    "checkmarks": [],
+    "criticalityScore": null,
+    "cvssScore": null,
+    "cvssVector": null,
+    "editTime": "2024-05-28T05:36:55.966853Z",
+    "files": [],
+    "hostnames": [],
+    "id": 26689,
+    "ips": [],
+    "issueSourceType": "Manual",
+    "labels": [
+        "Issue"
+    ],
+    "name": "Test Title Issue",
+    "nodeCreator": {
+        "passwordChangeRequired": false,
+        "userCreateDate": "2024-04-12T10:56:34.102854Z",
+        "userEmail": "test_user",
+        "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78",
+        "userIsAdmin": true,
+        "userIsConfirmed": true,
+        "userLastConfirmed": "2024-04-12T10:56:34.102797Z",
+        "userLogin": "testuser",
+        "userName": "test_user"
+    },
+    "nodeId": null,
+    "notes": [],
+    "parentId": null,
+    "postTime": "2024-05-28T05:36:55.966853Z",
+    "probabilityScore": null,
+    "requests": [],
+    "status": "draft",
+    "syncStatus": "new",
+    "totalScore": null,
+    "uuid": "d9e8d752-98dd-4c59-b27f-ee25080691bf",
+    "weaknessType": "3"
+}

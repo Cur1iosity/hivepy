@@ -1,5 +1,7 @@
 # HivePy
-Small wrapper for [HexWay Hive](https://hexway.io/hive/) Rest API.
+Unofficial flexible library for [HexWay Hive](https://hexway.io/hive/) Rest API.
+
+#### Tested on HexWay Hive 0.62.8
 
 ## Installation
 ```bash
@@ -12,28 +14,32 @@ pip install hw-hivepy
 - requests ~= 2.31.0
 
 ## Usage
+### API work modes
+There are three available modes for the HiveApi:
+- (**json**) returns raw json response
+- (**raw_items**) returns raw json response with items only
+- (**object** [default]) returns parsed json response as object
 
+### Simple HiveClient
 ```python
-from hivepy import Hive
+from hivepy import HiveApi
 
 
 def main() -> None:
     """Main function."""
     auth = {
-        'server': 'http://127.0.0.1',
+        'url': 'http://127.0.0.1',
         'username': 'user',
         'password': 'password',
     }
 
-    hive: Hive = Hive().connect(**auth)
-
+    hive: HiveApi = HiveApi().connect(**auth)
+    # hive.mode = 'json'  # Set mode
+    
     # Getting projects and its issues
     hive.get_projects()
-    hive.get_projects(project_id='some-project-id')
+    hive.get_project(project_id='some-project-id')
     hive.get_issues(project_id='some-project-id')
-
-    # Updating issue fields
-    hive.update_issue(project_id='some-project-id', issue_id='some-issue-id', status='ready')
 
     # Download binary file
     hive.get_file(project_id='some-project-id', file_id='some-file-id')
@@ -41,5 +47,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 ```

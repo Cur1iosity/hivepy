@@ -1,0 +1,709 @@
+{
+    "applicationConnect": null,
+    "connectionName": null,
+    "data": {
+        "date": "2024-05-09",
+        "datetime": "2024-05-19T12:15:00.000Z",
+        "float_field": 3.5,
+        "integer_field": 6,
+        "link": [
+            "Test",
+            "https://google.com"
+        ],
+        "markdown": "**Lalalalmarkdownsdlasdkasl;d**",
+        "multi_checkboxes": [
+            "Option A"
+        ],
+        "multi_select": [
+            "Option A",
+            "Option B"
+        ],
+        "radio_button": "Option B",
+        "single_checkbox": true,
+        "single_select": "Option B",
+        "test_multi_suggested_title2": [
+            "Seeeseee Lololol",
+            "lololo"
+        ],
+        "test_single_suggest_text_title": [
+            "Seeesee"
+        ],
+        "text_field": "Tested"
+    },
+    "defaultReportTemplateName": "security_assessment_report.docx",
+    "group": {
+        "description": "default group",
+        "fullSlug": "/default",
+        "id": "4d39c62e-650a-4a84-a6ec-0e707a0fdeac",
+        "name": "default",
+        "slug": "default"
+    },
+    "issueSettings": {
+        "additionalFieldsSettings": [
+            {
+                "allowedValues": [],
+                "displayName": "Description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "General description..."
+                },
+                "name": "generalDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Risks",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Risk description..."
+                },
+                "name": "risksDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Technical description",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Technical description..."
+                },
+                "name": "technicalDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Recommendations",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Recommendations..."
+                },
+                "name": "recommendations",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Steps to reproduce",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "Steps to reproduce..."
+                },
+                "name": "reproduceDescription",
+                "required": false,
+                "type": "TEXT_MD"
+            }
+        ],
+        "assetVersion": "SIMPLE",
+        "description": "default",
+        "id": "25ad282f-5504-433a-9fe5-ab1c66af014c",
+        "isDefault": true,
+        "name": "default",
+        "order": [
+            "name",
+            "status",
+            "postTime",
+            "editTime",
+            "probabilityScore",
+            "criticalityScore",
+            "totalScore",
+            "weaknessType",
+            "ips",
+            "hostnames",
+            "assets",
+            "generalDescription",
+            "risksDescription",
+            "technicalDescription",
+            "recommendations",
+            "reproduceDescription",
+            "requests",
+            "issueSourceType"
+        ],
+        "predefinedFieldsSettings": [
+            {
+                "allowedValues": [],
+                "displayName": "Title",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Issue title here..."
+                },
+                "name": "name",
+                "required": true,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "uuid",
+                "hidden": true,
+                "isList": false,
+                "metadata": {},
+                "name": "uuid",
+                "required": false,
+                "type": "UUID"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Created",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "postTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Edited",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "editTime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "IP addresses",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true
+                },
+                "name": "ips",
+                "required": false,
+                "type": "IP"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Hostnames",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true
+                },
+                "name": "hostnames",
+                "required": false,
+                "type": "HOSTNAME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Assets",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "fieldset": "affectedAssets",
+                    "fieldsetDisplayName": "Affected assets",
+                    "select": true,
+                    "structure": "assetStructure"
+                },
+                "name": "assets",
+                "required": false,
+                "type": "ASSET"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "HTTP requests",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "requestLabel": "HTTP request",
+                    "responseLabel": "HTTP response"
+                },
+                "name": "requests",
+                "required": false,
+                "type": "REQUEST"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    }
+                ],
+                "displayName": "Criticality",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Total score"
+                },
+                "name": "criticalityScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    }
+                ],
+                "displayName": "Probability",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Total score"
+                },
+                "name": "probabilityScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Info",
+                        "value": 0
+                    },
+                    {
+                        "displayValue": "Low",
+                        "value": 1
+                    },
+                    {
+                        "displayValue": "Medium",
+                        "value": 2
+                    },
+                    {
+                        "displayValue": "High",
+                        "value": 3
+                    },
+                    {
+                        "displayValue": "Critical",
+                        "value": 4
+                    }
+                ],
+                "displayName": "Total risk",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "fieldsetDisplayName": "Total score"
+                },
+                "name": "totalScore",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS vector",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "placeholder": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                },
+                "name": "cvssVector",
+                "required": false,
+                "type": "CVSS_BASE_VECTOR"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "CVSS score",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "fieldset": "totalScore",
+                    "placeholder": "5.5"
+                },
+                "name": "cvssScore",
+                "required": false,
+                "type": "CVSS_BASE_SCORE"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Weakness type",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "CWE-79"
+                },
+                "name": "weaknessType",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Status",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "status",
+                "required": true,
+                "type": "STATUS"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Datasource",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "issueSourceType",
+                "required": false,
+                "type": "DATASOURCE"
+            }
+        ],
+        "scoreMethod": "SIMPLE",
+        "structures": [
+            {
+                "fields": [
+                    {
+                        "allowedValues": [],
+                        "displayName": "IP",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "IP"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Hostname",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "HOSTNAME"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Port",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "INTEGER"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Path",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "TEXT"
+                    },
+                    {
+                        "allowedValues": [],
+                        "displayName": "Optional",
+                        "hidden": false,
+                        "isList": false,
+                        "metadata": {},
+                        "type": "TEXT"
+                    }
+                ],
+                "name": "assetStructure"
+            }
+        ],
+        "timestamp": "2024-05-16T07:10:32.388104Z",
+        "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78"
+    },
+    "lastIncomingPong": null,
+    "lastOutgoingPing": null,
+    "projectArchiveDate": null,
+    "projectConnectionId": null,
+    "projectCreateDate": "2024-05-16T07:10:20.315172Z",
+    "projectDescription": "Test Project",
+    "projectEndDate": "2024-05-15T00:00:00.000000Z",
+    "projectFullSlug": "/default/test-project",
+    "projectId": "f6d4a506-0aa5-4b93-b5f7-44f8b4b7a449",
+    "projectIsArchived": false,
+    "projectName": "Test Project",
+    "projectPermission": "ADMIN",
+    "projectSchema": {
+        "additionalFieldsSettings": [
+            {
+                "allowedValues": [],
+                "displayName": "Test Multi Suggested Text Title",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "hint": "Test hint for text",
+                    "initiallyCollapsed": true,
+                    "placeholder": "Test Multiple Suggester"
+                },
+                "name": "test_multi_suggested_title2",
+                "required": false,
+                "type": "TEXT_SUGGESTED"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Single SuggestedText Title",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "hint": "Hint",
+                    "placeholder": "Single text suggester"
+                },
+                "name": "test_single_suggest_text_title",
+                "required": false,
+                "type": "TEXT_SUGGESTED"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Text Field",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "test placeholder"
+                },
+                "name": "text_field",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Integer Field",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Integer"
+                },
+                "name": "integer_field",
+                "required": false,
+                "type": "INTEGER"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Float Field",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Float"
+                },
+                "name": "float_field",
+                "required": false,
+                "type": "FLOAT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "My Markdown",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Mark"
+                },
+                "name": "markdown",
+                "required": false,
+                "type": "TEXT_MD"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "SingleCheckbox",
+                "hidden": false,
+                "isList": false,
+                "metadata": {},
+                "name": "single_checkbox",
+                "required": false,
+                "type": "BOOLEAN"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Option A",
+                        "value": "Option A"
+                    },
+                    {
+                        "displayValue": "Option B",
+                        "value": "Option B"
+                    }
+                ],
+                "displayName": "MultiCheckboxes",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "select": false
+                },
+                "name": "multi_checkboxes",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Option A",
+                        "value": "Option A"
+                    },
+                    {
+                        "displayValue": "Option B",
+                        "value": "Option B"
+                    }
+                ],
+                "displayName": "SingleSelect",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Placeholder",
+                    "select": true
+                },
+                "name": "single_select",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Option A",
+                        "value": "Option A"
+                    },
+                    {
+                        "displayValue": "Option B",
+                        "value": "Option B"
+                    }
+                ],
+                "displayName": "MultiSelect",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "select": true
+                },
+                "name": "multi_select",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [
+                    {
+                        "displayValue": "Option A",
+                        "value": "Option A"
+                    },
+                    {
+                        "displayValue": "Option B",
+                        "value": "Option B"
+                    }
+                ],
+                "displayName": "RadioButton",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "select": false
+                },
+                "name": "radio_button",
+                "required": false,
+                "type": "TEXT"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Date",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "YYYY/MM/DD"
+                },
+                "name": "date",
+                "required": false,
+                "type": "DATE"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Datetime",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "initiallyCollapsed": true,
+                    "placeholder": "YYYY/MM/DD HH:MM"
+                },
+                "name": "datetime",
+                "required": false,
+                "type": "DATETIME"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "File",
+                "hidden": false,
+                "isList": true,
+                "metadata": {
+                    "placeholder": "File"
+                },
+                "name": "file",
+                "required": false,
+                "type": "FILE"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "Picture",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholder": "Image"
+                },
+                "name": "image",
+                "required": false,
+                "type": "IMAGE"
+            },
+            {
+                "allowedValues": [],
+                "displayName": "External link",
+                "hidden": false,
+                "isList": false,
+                "metadata": {
+                    "placeholderLinkText": "Text to display",
+                    "placeholderLinkUrl": "URL to which the link should refer to"
+                },
+                "name": "link",
+                "required": false,
+                "type": "LINK"
+            }
+        ],
+        "created": "2024-05-16T07:09:53.359561",
+        "fieldsOrder": [
+            "test_multi_suggested_title2",
+            "test_single_suggest_text_title",
+            "text_field",
+            "integer_field",
+            "float_field",
+            "markdown",
+            "multi_checkboxes",
+            "single_checkbox",
+            "single_select",
+            "multi_select",
+            "radio_button",
+            "date",
+            "datetime",
+            "file",
+            "image",
+            "link"
+        ],
+        "id": "4184735c-1212-4964-bec9-d8516fd34674",
+        "predefinedFieldsSettings": [],
+        "updated": null,
+        "version": 1
+    },
+    "projectScope": null,
+    "projectSlug": "test-project",
+    "projectStartDate": "2024-05-15T00:00:00.000000Z",
+    "projectUpdateDate": "2024-05-16T09:19:12.446189Z",
+    "projectUsers": [
+        {
+            "permissionType": "OWNER",
+            "userEmail": "cur1@ro.ot",
+            "userId": "5fbe9bb9-0818-44db-9b3c-00bef7b24f78",
+            "userName": "RT | cur1"
+        }
+    ]
+}
