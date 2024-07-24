@@ -33,7 +33,7 @@ class HiveApi:
 
         if not (cookie := response.cookies.get('BSESSIONID')):
             raise exceptions.RestConnectionError('Could not get authentication cookie. Something wrong with credentials'
-                                                 'or server.')
+                                                 ' or server.')
         self.client.add_headers({'Cookie': f'BSESSIONID={cookie}'})
         self.state = State.CONNECTED
 
@@ -86,6 +86,16 @@ class HiveApi:
         """Get session information."""
         response = self.client.get(f'{self.base_url}/session')
         return response
+
+    def get_session_token(self) -> str:
+        """Get session token."""
+        if self.state != State.CONNECTED:
+            raise exceptions.RestConnectionError('Not connected to server.')
+        return self.client.session.cookies.get("BSESSIONID")
+
+    def set_session(self, token: str) -> None:
+        """Set session token."""
+        self.client.session.cookies.update({'BSESSIONID': token})
 
     def get_licence(self) -> Dict:
         """Get licence information."""
@@ -204,9 +214,4 @@ class HiveApi:
         """Update issue."""
         response = self.client.patch(f'{self.base_url}/project/{project_id}/graph/issues/{issue_id}',
                                      json=data)
-        return response
-
-    def get_user(self, token: str) -> Dict:
-        """Get user by token."""
-        response = self.client.get(f'{self.base_url}/user', headers={'Authorization': f'Bearer {token}'})
         return response
