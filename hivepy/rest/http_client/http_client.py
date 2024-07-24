@@ -3,21 +3,11 @@ from typing import Dict, Self, Union, List
 
 import requests.utils
 from requests import Session, Response
-
+from http import HTTPStatus, HTTPMethod
 from hivepy.rest.http_client.exceptions import *
 
 
-class HTTPMethod(StrEnum):
-    """Enumeration of HTTP methods."""
-    GET = auto()
-    PATCH = auto()
-    POST = auto()
-    PUT = auto()
-    DELETE = auto()
-
-    def __str__(self) -> str:
-        """Return string representation of HTTP method."""
-        return self.value.upper()
+SUCCESSFUL_STATUS_CODES = [status for status in HTTPStatus if 200 <= status < 300]
 
 
 class HTTPClient:
@@ -28,10 +18,15 @@ class HTTPClient:
         """Universal method for sending requests."""
         try:
             response: Response = self.session.request(method, *args, **kwargs)
+
+            if response.status_code not in SUCCESSFUL_STATUS_CODES:
+                raise ClientError(f'Request failed with status code {response.status_code}', response.content)
+
             try:
                 return response.json()
             except requests.JSONDecodeError:
                 return response.content
+
         except requests.ConnectionError as e:
             if 'SOCKSHTTPSConnectionPool' in str(e):
                 proxy = self.session.proxies.get('https')

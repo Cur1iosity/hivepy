@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict, Union, Any, Optional
 
 from hivepy.api_management.enums import ObjectType
 from hivepy.issue_management.issue import Issue
@@ -16,6 +16,12 @@ class Builder:
         self.schema_factory: SchemaFactory = SchemaFactory()
         self.project_builder: ProjectBuilder = ProjectBuilder(self.schema_factory)
         self.issue_builder: IssueBuilder = IssueBuilder(self.schema_factory)
+        self._api: Optional[Any] = None
+
+    def set_api(self, api: Any) -> 'Builder':
+        """Set API."""
+        self._api = api
+        return self
 
     def build_project(self, project_data: dict) -> Project:
         """Build project."""

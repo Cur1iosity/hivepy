@@ -1,12 +1,13 @@
 import uuid
 from typing import Optional, Dict, Self, List, Union
 
-from hivepy.api_management.deserializator import ModeHandler
 from hivepy.api_management.enums import ClientMode, ObjectType
+from hivepy.api_management.mode_handler import ModeHandler
 from hivepy.api_management.object_builder import Builder as ObjectBuilder
 from hivepy.issue_management.issue import Issue
 from hivepy.project_management.project import Project
-from hivepy.rest import State, exceptions, HTTPClient
+from hivepy.rest import State, exceptions
+from hivepy.middleware.hive_middleware import HiveMiddleware
 
 
 @ModeHandler
@@ -16,7 +17,7 @@ class HiveApi:
         self.state: State = State.NOT_CONNECTED
         self.base_url: Optional[str] = None
 
-        self.http_client: HTTPClient = HTTPClient()
+        self.client: HiveMiddleware = HiveMiddleware()
         self.builder: ObjectBuilder = ObjectBuilder()
         self.mode: ClientMode = mode
 
@@ -25,18 +26,16 @@ class HiveApi:
 
     def authenticate(self, username: str, password: str) -> None:
         """Authenticate in Hive."""
-        response = self.http_client.session.post(f"{self.base_url}/session", json={
+        response = self.client.session.post(f"{self.base_url}/session", json={
             'userLogin': username,
             'userPassword': password,
         })
 
-        try:
-            cookie = response.cookies.get('BSESSIONID')
-            self.http_client.add_headers({'Cookie': f'BSESSIONID={cookie}'})
-            self.state = State.CONNECTED
-        except AttributeError:
+        if not (cookie := response.cookies.get('BSESSIONID')):
             raise exceptions.RestConnectionError('Could not get authentication cookie. Something wrong with credentials'
                                                  'or server.')
+        self.client.add_headers({'Cookie': f'BSESSIONID={cookie}'})
+        self.state = State.CONNECTED
 
     @staticmethod
     def create_base_url(url: str, port: Optional[int] = None) -> str:
@@ -73,121 +72,141 @@ class HiveApi:
         if mode:
             self.mode = mode
         if proxies:
-            self.http_client.update_params(proxies=proxies)
+            self.client.update_params(proxies=proxies)
         if proxy:
-            self.http_client.update_params(proxies={'http': proxy, 'https': proxy})
+            self.client.update_params(proxies={'http': proxy, 'https': proxy})
         if verify is False:
-            self.http_client.update_params(verify=False)
+            self.client.update_params(verify=False)
         if cert := kwargs.get('cert'):
-            self.http_client.update_params(cert=cert)
+            self.client.update_params(cert=cert)
         self.authenticate(username, password)
         return self
 
     def get_session(self) -> Dict:
         """Get session information."""
-        response = self.http_client.get(f'{self.base_url}/session')
+        response = self.client.get(f'{self.base_url}/session')
         return response
 
     def get_licence(self) -> Dict:
         """Get licence information."""
-        response = self.http_client.get(f'{self.base_url}/licence')
+        response = self.client.get(f'{self.base_url}/licence')
         return response
 
     def get_users(self) -> List[Dict]:
         """Get all users."""
-        response = self.http_client.get(f'{self.base_url}/user')
+        response = self.client.get(f'{self.base_url}/user')
         return response
 
     def get_groups(self) -> Dict:
         """Get all groups."""
-        response = self.http_client.get(f'{self.base_url}/groups')
+        response = self.client.get(f'{self.base_url}/groups')
         return response
 
     @ModeHandler.deserialize(to=ObjectType.PROJECT)
-    def get_projects(self, **params) -> List[Project]:
+    def get_projects(self, **params) -> Union[List[Project], List[Dict]]:
         """Get all projects."""
-        return self.http_client.post(f'{self.base_url}/project/filter', params=params)
+        return self.client.post(f'{self.base_url}/project/filter', params=params)
 
     @ModeHandler.deserialize(to=ObjectType.PROJECT)
-    def get_project(self, project_id: Union[str, uuid.UUID]) -> Dict:
+    def get_project(self, project_id: Union[str, uuid.UUID]) -> Union[Dict, Project]:
         """Get project by ID."""
-        return self.http_client.get(f'{self.base_url}/project/{project_id}')
+        return self.client.get(f'{self.base_url}/project/{project_id}')
 
     def get_project_templates(self, **params) -> Dict:
         """Get all project templates."""
-        response = self.http_client.get(f'{self.base_url}/project/templates', params=params)
-        return response
+        return self.client.get(f'{self.base_url}/project/templates', params=params)
 
     def get_project_custom_fields(self) -> List[Dict]:
         """Get all project custom fields."""
-        response = self.http_client.get(f'{self.base_url}/project/schema/accessible/fields')
-        return response
+        return self.client.get(f'{self.base_url}/project/schema/accessible/fields')
 
-    def get_issues(self, project_id: str, offset: int = 0, limit: int = 100) -> List[Issue]:
-        response = self.http_client.post(
+    @ModeHandler.deserialize(to=ObjectType.ISSUE)
+    def get_issue(self, project_id: Union[str, uuid.UUID], issue_id: Union[str, uuid.UUID]) -> Union[Dict, Issue]:
+        """Get issue by ID."""
+        return self.client.get(f'{self.base_url}/project/{project_id}/graph/issues/{issue_id}')
+
+    @ModeHandler.deserialize(to=ObjectType.ISSUE)
+    def get_issues(self, project_id: str, offset: int = 0, limit: int = 100) -> Union[List[Issue], List[Dict]]:
+        return self.client.post(
             url=f'{self.base_url}/project/{project_id}/graph/issue_list?offset={offset}&limit={limit}',
             json={})
-        return [Issue(**x) for x in response.get('items', [])]
 
     def get_file(self, project_id: str, file_id: str) -> bytes:
-        return self.http_client.get(f'{self.base_url}/project/{project_id}/graph/file/{file_id}')
+        return self.client.get(f'{self.base_url}/project/{project_id}/graph/file/{file_id}')
 
     def get_issues_schemas(self) -> List[Dict]:
         """Get all issues schemes."""
-        response = self.http_client.get(f'{self.base_url}/customization/issues')
+        response = self.client.get(f'{self.base_url}/customization/issues')
         return response
 
     def get_project_issue_scheme(self, project_id: Union[str, uuid.UUID]) -> Dict:
         """Get project issue scheme."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/settings/issues')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/settings/issues')
         return response
 
     def get_project_issue(self, project_id: Union[str, uuid.UUID], issue_id: Union[str, uuid.UUID]) -> Dict:
         """Get project issue."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/graph/issues/{issue_id}')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/graph/issues/{issue_id}')
         return response
 
     def get_project_tasks(self, project_id: Union[str, uuid.UUID], **params) -> Dict:
         """Get project tasks."""
-        response = self.http_client.post(f'{self.base_url}/project/{project_id}/tasks', params=params)
+        response = self.client.post(f'{self.base_url}/project/{project_id}/tasks', params=params)
         return response
 
     def get_project_issue_sources(self, project_id: Union[str, uuid.UUID]) -> List[Dict]:
         """Get project issue sources."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/graph/issues/sources')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/graph/issues/sources')
         return response
 
     def get_project_issue_statuses(self, project_id: Union[str, uuid.UUID]) -> List[Dict]:
         """Get project issue statuses."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/settings/issues/statuses')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/settings/issues/statuses')
         return response
 
     def get_project_checklists(self, project_id: Union[str, uuid.UUID]) -> List[Dict]:
         """Get project checklists."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/graph/checklist')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/graph/checklist')
         return response
 
     def get_project_apps(self, project_id: Union[str, uuid.UUID]) -> List[Dict]:
         """Get project apps."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/graph/apps')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/graph/apps')
         return response
 
     def get_project_credentials(self, project_id: Union[str, uuid.UUID]) -> List[Dict]:
         """Get project credentials."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/graph/nodes/credentials ')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/graph/nodes/credentials ')
         return response
 
     def get_project_description(self, project_id: Union[str, uuid.UUID]) -> Dict:
         """Get project description."""
-        response = self.http_client.get(f'{self.base_url}/project/{project_id}/description')
+        response = self.client.get(f'{self.base_url}/project/{project_id}/description')
         return response
 
     def get_checklist_templates(self) -> List[Dict]:
         """Get all checklist templates."""
-        response = self.http_client.get(f'{self.base_url}/templates/checklists')
+        response = self.client.get(f'{self.base_url}/templates/checklists')
         return response
 
     def get_issues_templates(self) -> List[Dict]:
         """Get all issues templates."""
-        response = self.http_client.get(f'{self.base_url}/templates/issues')
+        response = self.client.get(f'{self.base_url}/templates/issues')
+        return response
+
+    def update_project(self, project_id: Union[str, uuid.UUID], data: Dict) -> Dict:
+        """Update project."""
+        files = {k: (None, v) for k, v in data.items()}
+        response = self.client.put(f'{self.base_url}/project/{project_id}', files=files)
+        return response
+
+    def update_issue(self, project_id: Union[str, uuid.UUID], issue_id: Union[str, uuid.UUID], data: Dict) -> Dict:
+        """Update issue."""
+        response = self.client.patch(f'{self.base_url}/project/{project_id}/graph/issues/{issue_id}',
+                                     json=data)
+        return response
+
+    def get_user(self, token: str) -> Dict:
+        """Get user by token."""
+        response = self.client.get(f'{self.base_url}/user', headers={'Authorization': f'Bearer {token}'})
         return response

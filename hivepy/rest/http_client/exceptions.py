@@ -1,6 +1,12 @@
+from typing import Optional
+
+
 class ClientError(Exception):
     """Base exception for Client."""
-    ...
+    def __init__(self, message, content=None):
+        """Initialize ClientError."""
+        super().__init__(message)
+        self.content: Optional[str] = content
 
 
 class ClientConnectionError(ClientError):

@@ -29,13 +29,16 @@ class ModeHandler:
         return getattr(self._instance, name)
 
     @staticmethod
-    def deserialize(to: ObjectType) -> Callable:
+    def deserialize(to: ObjectType, **params) -> Callable:
         """Deserialize response to object."""
         def decorator(method) -> Callable:
             """Decorator."""
             def wrapper(self, *args, **kwargs):
                 """Wrapper."""
+                project_id = None
                 result = method(self, *args, **kwargs)
+                result |= params
+
                 if self.mode == ClientMode.JSON:
                     return result
 
@@ -45,8 +48,21 @@ class ModeHandler:
                     return result  # Return list of items or raw item if only one
 
                 if self.mode == ClientMode.OBJECT:
+                    if to == ObjectType.ISSUE:
+                        # Retrieve project_id from kwargs or args
+                        if kwargs.get('project_id'):
+                            project_id = kwargs['project_id']
+                        elif args:
+                            project_id = args[0]
+
                     if hasattr(result, 'append'):
-                        return [self._builder.build(to, item) for item in result]
-                    return self.builder.build(to, result)
+                        items = [self.builder.build(to, item) for item in result]
+                        [item.set_api(self) for item in items]
+
+                        if to == ObjectType.ISSUE:
+                            [item.set_project_id(project_id) for item in items]
+                        return items
+                    item = self.builder.build(to, result).set_api(self)
+                    return item.set_project_id(project_id) if to == ObjectType.ISSUE else item
             return wrapper
         return decorator
